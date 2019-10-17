@@ -1,7 +1,9 @@
 package com.proyect.avaclick.models
 
 import com.proyect.avaclick.entity.orm.IColumn
+import com.proyect.avaclick.entity.orm.IEntity
 
+@IEntity(table = "Usuario", primaryKey = ["ID"])
 data class User(  @IColumn(name = "ID", dataType = "int")
                   val IdUsuario: Int = 0,
 

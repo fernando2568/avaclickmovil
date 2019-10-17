@@ -1,7 +1,10 @@
 package com.proyect.avaclick.models
 
 import com.proyect.avaclick.entity.orm.IColumn
+import com.proyect.avaclick.entity.orm.IEntity
 
+@IEntity(table = "Persona", primaryKey = ["ID"])
+//Para crear la tabla en la base de datos
 data class Persona(   @IColumn(name = "IsAdministrator", dataType = "text")
                       val IdPersona: Int = 0,
 

@@ -2,6 +2,8 @@ package com.proyect.avaclick.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import retrofit2.Call
@@ -18,6 +20,24 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
+        show_pass.setOnClickListener{
+            /*if(show_pass.background.toString() == "@drawable/eye"){
+                txtPasswd.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                show_pass.setBackgroundResource(R.drawable.eye_hide)
+            }else{
+                txtPasswd.transformationMethod = HideReturnsTransformationMethod.getInstance()
+                show_pass.setBackgroundResource(R.drawable.eye)
+            }*/
+
+            if(txtPasswd.transformationMethod == PasswordTransformationMethod.getInstance()){
+                show_pass.setBackgroundResource(R.drawable.eye_hide)
+                txtPasswd.transformationMethod = HideReturnsTransformationMethod.getInstance()
+            }else{
+                show_pass.setBackgroundResource(R.drawable.eye)
+                txtPasswd.transformationMethod = PasswordTransformationMethod.getInstance()
+            }
+        }
 
 
         btnLogin.setOnClickListener {
@@ -66,7 +86,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         btnCreate?.setOnClickListener {
-            val intent = Intent(this, RegistryUserActivity::class.java)
+            val intent = Intent(applicationContext, RegistryUserActivity::class.java)
             startActivity(intent)
         }
     }
@@ -81,4 +101,8 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
+
+
+
 }

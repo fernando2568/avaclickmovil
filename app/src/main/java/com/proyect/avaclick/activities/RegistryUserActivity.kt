@@ -86,13 +86,13 @@ class RegistryUserActivity : AppCompatActivity(){
         return encoded
     }
 
-    /*fun ShowHidePass(){
-        if(editTextPassword.transformationMethod.equals(PasswordTransformationMethod.getInstance())){
+    fun ShowHidePass(){
+        if(editTextPassword.transformationMethod == PasswordTransformationMethod.getInstance()){
             show_pass_btn.setImageResource(R.drawable.eye_hide)
             editTextPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
         }else{
             show_pass_btn.setImageResource(R.drawable.eye)
             editTextPassword.transformationMethod = PasswordTransformationMethod.getInstance()
         }
-    }*/
+    }
 }

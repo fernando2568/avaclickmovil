@@ -33,7 +33,7 @@
                 android:id="@+id/editTextUsuario"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/box_toolbar"
                 android:singleLine="true"
                 android:nextFocusForward="@+id/editTextApellidos"
@@ -52,13 +52,48 @@
                 android:id="@+id/editTextApellidos"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/box_toolbar"
                 android:singleLine="true"
                 android:nextFocusForward="@+id/editTextPassword"
                 android:ems="10" />
 
             <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="Password:"
+                android:textColor="@color/secondary"
+                android:textSize="20sp" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" >
+
+                <EditText
+                    android:id="@+id/editTextPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="@drawable/box_toolbar"
+                    android:layout_marginBottom="5dp"
+                    android:inputType="textPassword"
+                    android:singleLine="true"
+                    android:nextFocusForward="@+id/editTextRepPassword"/>
+
+                <ImageView
+                    android:id="@+id/show_pass_btn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignRight="@+id/editTextPassword"
+                    android:layout_marginRight="10dp"
+                    android:onClick="ShowHidePass"
+                    android:layout_centerVertical="true"
+                    android:src="" />
+
+            </RelativeLayout>
+
+            <!--<TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -76,7 +111,7 @@
                 android:ems="10"
                 android:inputType="textPassword"
                 android:singleLine="true"
-                android:nextFocusForward="@+id/editTextRepPassword"/>
+                android:nextFocusForward="@+id/editTextRepPassword"/>-->
 
             <TextView
                 android:id="@+id/textView5"
@@ -91,7 +126,7 @@
                 android:id="@+id/editTextRepPassword"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/box_toolbar"
                 android:ems="10"
                 android:inputType="textPassword"
@@ -111,7 +146,7 @@
                 android:id="@+id/editTextCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:layout_marginBottom="25dp"
+                android:layout_marginBottom="5dp"
                 android:background="@drawable/box_toolbar"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"

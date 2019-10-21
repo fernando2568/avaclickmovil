@@ -19,4 +19,9 @@
         <item name="android:windowEnterAnimation">@anim/slide_ot_left</item>
         <!--<item name="android:windowExitAnixmation">@android:anim/slide_out_right</item>-->
     </style>
+
+    <style name="RegistryTheme">
+        <item name="android:background">@color/blue_500</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
 </resources>

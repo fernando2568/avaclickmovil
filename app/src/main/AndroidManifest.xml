@@ -21,7 +21,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".activities.HomeActivity" />
-        <activity android:name=".activities.RegistryUserActivity"></activity>
+        <activity
+            android:name=".activities.RegistryUserActivity"
+            android:label="Registro de usuarios"
+            android:theme="@style/RegistryTheme"/>
     </application>
 
 </manifest>

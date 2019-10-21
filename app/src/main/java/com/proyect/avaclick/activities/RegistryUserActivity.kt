@@ -3,6 +3,9 @@ package com.proyect.avaclick.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.HideReturnsTransformationMethod
+import android.text.method.PasswordTransformationMethod
+import android.view.View
 import kotlinx.android.synthetic.main.activity_registry_user.*
 import android.widget.Toast
 import com.proyect.avaclick.R
@@ -55,22 +58,15 @@ class RegistryUserActivity : AppCompatActivity(){
                     override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
                         Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                     }
-
-                    override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
-                        if(response.body()?.valido === true){
-
+                    override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) =
+                        if(response.body()?.valido?.equals(true) ?: (true === null)){
                             Toast.makeText(applicationContext,response.toString(), Toast.LENGTH_LONG).show()
                             val intent = Intent(applicationContext, LoginActivity::class.java)
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-
                             startActivity(intent)
-
-
                         }else{
                             Toast.makeText(applicationContext, response.body()?.valido.toString(), Toast.LENGTH_LONG).show()
                         }
-
-                    }
                 })
         }
     }
@@ -89,4 +85,14 @@ class RegistryUserActivity : AppCompatActivity(){
         }
         return encoded
     }
+
+    /*fun ShowHidePass(){
+        if(editTextPassword.transformationMethod.equals(PasswordTransformationMethod.getInstance())){
+            show_pass_btn.setImageResource(R.drawable.eye_hide)
+            editTextPassword.transformationMethod = HideReturnsTransformationMethod.getInstance()
+        }else{
+            show_pass_btn.setImageResource(R.drawable.eye)
+            editTextPassword.transformationMethod = PasswordTransformationMethod.getInstance()
+        }
+    }*/
 }

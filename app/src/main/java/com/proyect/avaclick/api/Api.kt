@@ -1,5 +1,6 @@
 package com.proyect.avaclick.api
 
+import android.icu.text.DecimalFormat
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -16,4 +17,17 @@ interface Api {
             @Field("user") email:String,
             @Field("pass") password: String
     ):Call<LoginResponse>
+
+    @FormUrlEncoded
+    @POST("Registro")
+    fun registryUser(
+        @Field("mailUser") email:String,
+        @Field("passwordUser") password: String,
+        @Field("nameUser") name: String,
+        @Field("lastNameUser") lastNameUser: String,
+        @Field("lastSecondNameUser") lastSecondNameUser: String,
+        @Field("telHomeUser") telephone: String,
+        @Field("telOfficeUser") officeTelephone: String,
+        @Field("celUser") cellphone:String
+    ):Call<DefaultResponse>
 }

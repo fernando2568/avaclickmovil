@@ -1,10 +1,17 @@
 package com.proyect.avaclick.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_registry_user.*
 import android.widget.Toast
 import com.proyect.avaclick.R
+import com.proyect.avaclick.api.RetrofitClient
+import com.proyect.avaclick.models.DefaultResponse
+import com.proyect.avaclick.models.LoginResponse
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegistryUserActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,11 +26,11 @@ class RegistryUserActivity : AppCompatActivity(){
     }
 
     fun validateUserOnCreate(){
-        var usuario = editTextUsuario.text.toString()
+        var usuario   = editTextUsuario.text.toString()
         var apellidos = editTextApellidos.text.toString()
-        var password = editTextPassword.text.toString()
+        var password  = editTextPassword.text.toString()
         var rpassword = editTextRepPassword.text.toString()
-        var correo = editTextCorreo.text.toString()
+        var correo    = editTextCorreo.text.toString()
 
         if(usuario == ""){
             Toast.makeText(this, "Debes ingresar un nombre.", Toast.LENGTH_LONG).show()
@@ -43,7 +50,28 @@ class RegistryUserActivity : AppCompatActivity(){
         else{
             //Crar usuario nuevo
             var encodedPassword = encode16(password)
-            Toast.makeText(this, encodedPassword, Toast.LENGTH_LONG).show()
+            RetrofitClient.instance.registryUser(correo,password,usuario,usuario,usuario,"33175689", "33174589", "3323564578")
+                .enqueue(object: Callback<DefaultResponse> {
+                    override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                        Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
+                    }
+
+                    override fun onResponse(call: Call<DefaultResponse>, response: Response<DefaultResponse>) {
+                        if(response.body()?.valido === true){
+
+                            Toast.makeText(applicationContext,response.toString(), Toast.LENGTH_LONG).show()
+                            val intent = Intent(applicationContext, LoginActivity::class.java)
+                            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+
+                            startActivity(intent)
+
+
+                        }else{
+                            Toast.makeText(applicationContext, response.body()?.valido.toString(), Toast.LENGTH_LONG).show()
+                        }
+
+                    }
+                })
         }
     }
 

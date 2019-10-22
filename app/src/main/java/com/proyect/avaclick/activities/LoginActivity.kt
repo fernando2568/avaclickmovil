@@ -22,13 +22,6 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         show_pass.setOnClickListener{
-            /*if(show_pass.background.toString() == "@drawable/eye"){
-                txtPasswd.transformationMethod = HideReturnsTransformationMethod.getInstance()
-                show_pass.setBackgroundResource(R.drawable.eye_hide)
-            }else{
-                txtPasswd.transformationMethod = HideReturnsTransformationMethod.getInstance()
-                show_pass.setBackgroundResource(R.drawable.eye)
-            }*/
 
             if(txtPasswd.transformationMethod == PasswordTransformationMethod.getInstance()){
                 show_pass.setBackgroundResource(R.drawable.eye_hide)

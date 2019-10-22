@@ -87,7 +87,6 @@
                     android:layout_height="30dp"
                     android:layout_alignRight="@+id/editTextPassword"
                     android:layout_marginRight="10dp"
-                    android:onClick="ShowHidePass"
                     android:layout_centerVertical="true"
                     android:src="@drawable/eye" />
 

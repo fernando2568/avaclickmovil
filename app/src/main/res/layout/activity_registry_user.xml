@@ -13,6 +13,22 @@
         android:orientation="vertical"
         android:weightSum="1">
 
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:minHeight="?attr/actionBarSize"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorPrimary">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Registro."
+                android:layout_gravity="center"
+                android:id="@+id/toolbar_title" />
+
+        </androidx.appcompat.widget.Toolbar>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="680dp"
@@ -133,13 +149,13 @@
                 android:nextFocusForward="@+id/editTextCorreo"/>
 
             <TextView
-                android:id="@+id/textView6"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="10dp"
-                android:text="Correo:"
-                android:textColor="@color/secondary"
-                android:textSize="20sp" />
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:text="Correo:"
+            android:textColor="@color/secondary"
+            android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/editTextCorreo"
@@ -148,6 +164,24 @@
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/box_toolbar"
                 android:inputType="textEmailAddress"
+                android:singleLine="true"
+                android:ems="10" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:text="Telefono:"
+                android:textColor="@color/secondary"
+                android:textSize="20sp" />
+
+            <EditText
+                android:id="@+id/editTextTelefono"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/box_toolbar"
                 android:singleLine="true"
                 android:ems="10" />
 
@@ -166,7 +200,8 @@
                     android:layout_height="wrap_content"
                     android:autoLink="web"
                     android:clickable="true"
-                    android:text="@string/terms"/>
+                    android:text="@string/terms"
+                    android:textColor="@color/secondary"/>
 
             </LinearLayout>
 
@@ -177,7 +212,8 @@
                 android:backgroundTint="@color/blue_500"
                 android:foregroundTint="@android:color/darker_gray"
                 android:text="Crear una cuenta"
-                android:textColor="#ffff" />
+                android:textColor="#ffff"
+                android:layout_marginTop="100dp"/>
 
         </LinearLayout>
 

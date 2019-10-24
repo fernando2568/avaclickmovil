@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
-import android.view.View
 import kotlinx.android.synthetic.main.activity_registry_user.*
 import android.widget.Toast
 import com.proyect.avaclick.R
 import com.proyect.avaclick.api.RetrofitClient
 import com.proyect.avaclick.models.DefaultResponse
-import com.proyect.avaclick.models.LoginResponse
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.widget.Toolbar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,7 +26,6 @@ class RegistryUserActivity : AppCompatActivity(){
         button?.setOnClickListener {
             validateUserOnCreate()
         }
-
 
         show_pass_btn.setOnClickListener{
             if(editTextPassword.transformationMethod == PasswordTransformationMethod.getInstance()){
@@ -45,6 +44,7 @@ class RegistryUserActivity : AppCompatActivity(){
         var password  = editTextPassword.text.toString()
         var rpassword = editTextRepPassword.text.toString()
         var correo    = editTextCorreo.text.toString()
+        var telefono    = editTextTelefono.text.toString()
 
         if(usuario == ""){
             Toast.makeText(this, "Debes ingresar un nombre.", Toast.LENGTH_LONG).show()
@@ -58,13 +58,19 @@ class RegistryUserActivity : AppCompatActivity(){
             Toast.makeText(this, "Debes ingrear un correo.", Toast.LENGTH_LONG).show()
         }else if(!(isEmailValid(correo))){
             Toast.makeText(this, "El correo no es valido.", Toast.LENGTH_LONG).show()
+        }else if(telefono == ""){
+            Toast.makeText(this, "Debes ingrear un numero de telefono.", Toast.LENGTH_LONG).show()
         }else if(!(checkBoxTerminos.isChecked)){
             Toast.makeText(this, "Tiene que aceptar terminos y condiciones.", Toast.LENGTH_LONG).show()
         }
         else{
             //Crar usuario nuevo
             var encodedPassword = encode16(password)
-            RetrofitClient.instance.registryUser(correo,password,usuario,usuario,usuario,"33175689", "33174589", "3323564578")
+            var arrayApellidos: List<String> = apellidos.split(" ")
+            var apPaterno = arrayApellidos[0]
+            var apMaterno = arrayApellidos[1]
+
+            RetrofitClient.instance.registryUser(correo,encodedPassword,usuario,apPaterno,apMaterno,telefono, "", "")
                 .enqueue(object: Callback<DefaultResponse> {
                     override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
                         Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
@@ -96,6 +102,4 @@ class RegistryUserActivity : AppCompatActivity(){
         }
         return encoded
     }
-
-
 }

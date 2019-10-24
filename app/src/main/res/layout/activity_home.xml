@@ -6,11 +6,11 @@
     android:layout_height="match_parent"
     android:background="@color/orange_menu">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="178dp"
-        android:background="@mipmap/header_panel_usuario"
-        android:gravity="center">
+        android:layout_height="wrap_content"
+        android:background="@mipmap/header_panel_usuario">
 
         <TextView
             android:id="@+id/textView"
@@ -22,7 +22,7 @@
             android:textColor="@color/text_white_text_icons_100"
             android:textSize="25sp" />
 
-    </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,7 +42,6 @@
             android:textColorLink="#ff9e19"
             android:textSize="25sp" />
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="220dp"
@@ -74,6 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
+
         </FrameLayout>
 
 

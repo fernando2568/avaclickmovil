@@ -21,9 +21,11 @@
         <!--<item name="android:windowExitAnixmation">@android:anim/slide_out_right</item>-->
     </style>
 
-    <style name="RegistryTheme">
-        <item name="android:background">@color/blue_500</item>
-        <item name="android:textColor">@color/white</item>
+    <style name="AppTheme.RegistryTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/feo</item>
+        <item name="colorPrimaryDark">@color/feo</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/feo</item>
     </style>
 
     <style name="HomeActivity">

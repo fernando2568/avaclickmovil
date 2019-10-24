@@ -52,7 +52,6 @@
     <string name="title_activity_perfil_usuario">Datos de la cuenta</string>
 
     <string name="facebook_app_id">267343567291563</string>
-    <string name="todo">TODO</string>
     <string name="usuario">Usuario</string>
     <string name="usu_correo">Usuario o correo electronico</string>
     <string name="contra">Contraseña</string>
@@ -86,4 +85,9 @@
     <string name="perfil">Perfil</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="terms">Acepto las <b><a href="http://www.cleverfinger.com.au/user-guide/">Condiciones de Uso</a></b></string>
+    <string name="recuperar_contra">Recuperar Contraseña</string>
+    <string name="enviar">Enviar</string>
+    <string name="correo_ejemplo">correo@ejemplo.com</string>
+    <string name="recuperar_cuenta">Ingresa tu email, te enviaremos un enlace para recuperar tu cuenta.</string>
+    <string name="todo">TODO</string>
 </resources>

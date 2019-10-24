@@ -9,7 +9,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="178dp"
-        android:background="@mipmap/header_panel_usuario">
+        android:background="@mipmap/header_panel_usuario"
+        android:gravity="center">
 
         <TextView
             android:id="@+id/textView"
@@ -25,16 +26,14 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp">
+        android:layout_height="227dp"
+        android:gravity="center">
 
         <Button
             android:id="@+id/btnCrear"
             android:layout_width="160dp"
             android:layout_height="88dp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="120dp"
-            android:layout_marginRight="120dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
             android:background="@color/feo"
             android:gravity="center"
             android:text="@string/crear"
@@ -46,17 +45,15 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="310dp">
+        android:layout_height="220dp"
+        android:gravity="center">
 
         <Button
             android:id="@+id/btnConsultar"
             android:layout_width="160dp"
             android:layout_height="88dp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="120dp"
-            android:layout_marginBottom="10dp"
             android:background="@color/feo"
+            android:layout_marginBottom="20dp"
             android:gravity="center"
             android:text="@string/consultar"
             android:textAlignment="center"

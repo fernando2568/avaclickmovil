@@ -24,7 +24,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="256dp"
+            android:layout_height="278dp"
             android:layout_margin="20dp"
             android:orientation="vertical">
 
@@ -61,7 +61,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="20dp"
                 android:paddingStart="10dp"
                 android:paddingTop="10dp"
                 android:paddingEnd="10dp"
@@ -103,7 +103,7 @@
                     android:layout_alignParentEnd="true"
                     android:layout_centerVertical="true"
                     android:layout_marginEnd="20dp"
-                    android:background="@drawable/eye"/>
+                    android:background="@drawable/eye" />
 
             </RelativeLayout>
 
@@ -113,9 +113,8 @@
                 android:layout_height="35dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginLeft="15dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="30dp"
                 android:layout_marginRight="15dp"
-                android:layout_marginBottom="10dp"
                 android:background="#1d1d1b"
                 android:text="@string/inicio_sesion"
                 android:textAlignment="center"
@@ -125,16 +124,36 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/lblOlvido"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="@string/forget_pass"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_black_text_87"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
         <TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="40dp"
+            android:layout_marginTop="40dp"
             android:gravity="center"
             android:text="@string/no_account"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_black_text_87"
             android:textSize="16sp"
             android:textStyle="bold" />
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -155,24 +174,7 @@
                 android:textSize="15sp" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/lblOlvido"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:text="@string/forget_pass"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:textColor="@color/text_black_text_87"
-                android:textSize="16sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
 
     </LinearLayout>
 

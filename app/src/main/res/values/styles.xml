@@ -27,4 +27,11 @@
         <item name="colorAccent">@color/green_700</item>
         <item name="android:navigationBarColor">@color/feo</item>
     </style>
+
+    <style name="AppTheme.HomeActivity" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">#000000</item>
+        <item name="colorPrimaryDark">#000000</item>
+        <item name="colorAccent">#000000</item>
+        <item name="android:navigationBarColor">#000000</item>
+    </style>
 </resources>

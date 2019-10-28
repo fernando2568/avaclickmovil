@@ -86,6 +86,10 @@
     <string name="perfil">Perfil</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="terms">Acepto las <b><a href="http://www.cleverfinger.com.au/user-guide/">Condiciones de Uso</a></b></string>
+    <string name="recuperar_contra">Recuperar Contraseña</string>
+    <string name="enviar">Enviar</string>
+    <string name="correo_ejemplo">correo@ejemplo.com</string>
+    <string name="recuperar_cuenta">Ingresa tu email, te enviaremos un enlace para recuperar tu cuenta.</string>
     <string name="toolbarT">Registro</string>
     <string name="nombreR">Nombre:</string>
     <string name="apellidosR">Apellidos:</string>

@@ -6,9 +6,10 @@
     android:layout_height="match_parent"
     android:background="@color/orange_menu">
 
-    <LinearLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="178dp"
+        android:layout_height="wrap_content"
         android:background="@mipmap/header_panel_usuario">
 
         <TextView
@@ -21,20 +22,18 @@
             android:textColor="@color/text_white_text_icons_100"
             android:textSize="25sp" />
 
-    </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="250dp">
+        android:layout_height="227dp"
+        android:gravity="center">
 
         <Button
             android:id="@+id/btnCrear"
             android:layout_width="160dp"
             android:layout_height="88dp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="120dp"
-            android:layout_marginRight="120dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="20dp"
             android:background="@color/feo"
             android:gravity="center"
             android:text="@string/crear"
@@ -43,20 +42,17 @@
             android:textColorLink="#ff9e19"
             android:textSize="25sp" />
     </LinearLayout>
-
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="310dp">
+        android:layout_height="220dp"
+        android:gravity="center">
 
         <Button
             android:id="@+id/btnConsultar"
             android:layout_width="160dp"
             android:layout_height="88dp"
-            android:layout_marginLeft="120dp"
-            android:layout_marginTop="40dp"
-            android:layout_marginRight="120dp"
-            android:layout_marginBottom="10dp"
             android:background="@color/feo"
+            android:layout_marginBottom="20dp"
             android:gravity="center"
             android:text="@string/consultar"
             android:textAlignment="center"
@@ -77,6 +73,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1">
+
         </FrameLayout>
 
 

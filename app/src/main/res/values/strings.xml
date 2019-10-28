@@ -86,4 +86,9 @@
     <string name="perfil">Perfil</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="terms">Acepto las <b><a href="http://www.cleverfinger.com.au/user-guide/">Condiciones de Uso</a></b></string>
+    <string name="toolbarT">Registro</string>
+    <string name="nombreR">Nombre:</string>
+    <string name="apellidosR">Apellidos:</string>
+    <string name="passwordR">Password:</string>
+    <string name="passwordCR">Confirmar password:</string>
 </resources>

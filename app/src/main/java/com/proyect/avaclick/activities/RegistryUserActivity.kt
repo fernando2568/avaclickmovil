@@ -22,6 +22,10 @@ class RegistryUserActivity : AppCompatActivity(){
         setContentView(R.layout.activity_registry_user)
 
         var button = buttonAgregar
+        toolbar.setNavigationIcon(R.drawable.arrowleft)
+        toolbar.setNavigationOnClickListener{
+
+        }
 
         button?.setOnClickListener {
             validateUserOnCreate()

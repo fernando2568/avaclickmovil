@@ -220,11 +220,12 @@
                 android:id="@+id/buttonAgregar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/blue_500"
+                android:layout_marginTop="100dp"
+                android:backgroundTint="@color/grey_600"
+                android:enabled="true"
                 android:foregroundTint="@android:color/darker_gray"
                 android:text="Crear una cuenta"
-                android:textColor="#ffff"
-                android:layout_marginTop="100dp"/>
+                android:textColor="#ffff" />
 
         </LinearLayout>
 

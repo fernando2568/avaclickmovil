@@ -1,6 +1,7 @@
 package com.proyect.avaclick.activities
 
 import android.content.Intent
+import android.content.res.ColorStateList
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
@@ -28,14 +29,28 @@ class RegistryUserActivity : AppCompatActivity(){
         setContentView(R.layout.activity_registry_user)
 
         var button = buttonAgregar
-        toolbar.setNavigationIcon(R.drawable.arrowleft)
+        toolbar.setNavigationIcon(R.drawable.arrowleft_white)
         toolbar.setNavigationOnClickListener{
-
+            val intent = Intent(applicationContext, LoginActivity::class.java)
+            startActivity(intent)
         }
 
         button?.setOnClickListener {
-            validateUserOnCreate()
+            if(button.backgroundTintList == ColorStateList.valueOf(resources.getColor(R.color.grey_600))){
+                Toast.makeText(this, "Tiene que aceptar terminos y condiciones.", Toast.LENGTH_LONG).show()
+            }else{
+                validateUserOnCreate()
+            }
         }
+
+        checkBoxTerminos.setOnCheckedChangeListener { buttonView, isChecked ->
+            if(!checkBoxTerminos.isChecked){
+                button.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.grey_600))
+            }else{
+                button.backgroundTintList = ColorStateList.valueOf(resources.getColor(R.color.blue_500))
+            }
+        }
+
         editTextPassword.customSelectionActionModeCallback = object : ActionMode.Callback {
 
             override fun onCreateActionMode(actionMode: ActionMode, menu: Menu): Boolean {

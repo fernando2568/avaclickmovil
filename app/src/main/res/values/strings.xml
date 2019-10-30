@@ -52,6 +52,7 @@
     <string name="title_activity_perfil_usuario">Datos de la cuenta</string>
 
     <string name="facebook_app_id">267343567291563</string>
+    <string name="todo">TODO</string>
     <string name="usuario">Usuario</string>
     <string name="usu_correo">Usuario o correo electronico</string>
     <string name="contra">Contraseña</string>
@@ -89,19 +90,9 @@
     <string name="enviar">Enviar</string>
     <string name="correo_ejemplo">correo@ejemplo.com</string>
     <string name="recuperar_cuenta">Ingresa tu email, te enviaremos un enlace para recuperar tu cuenta.</string>
-    <string name="todo">TODO</string>
-    <string name="iniciando_sesion">Iniciando Sesión</string>
-    <string name="title_activity_navigation_home">NavigationHome</string>
-    <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
-    <string name="text_consultar">Tus reportes almacenados</string>
-    <string name="text_crear">Un nuevo reporte</string>
+    <string name="toolbarT">Registro</string>
+    <string name="nombreR">Nombre:</string>
+    <string name="apellidosR">Apellidos:</string>
+    <string name="passwordR">Password:</string>
+    <string name="passwordCR">Confirmar password:</string>
 </resources>

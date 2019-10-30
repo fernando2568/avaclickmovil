@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:background="#EEEEEE"
         android:isScrollContainer="?android:attr/windowFullscreen"
         android:orientation="vertical"
@@ -15,23 +15,25 @@
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
-            android:minHeight="?attr/actionBarSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/colorPrimary">
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize">
 
             <TextView
+                android:id="@+id/toolbar_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Registro."
                 android:layout_gravity="center"
-                android:id="@+id/toolbar_title" />
+                android:text="@string/toolbarT"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
 
         </androidx.appcompat.widget.Toolbar>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="680dp"
+            android:layout_height="wrap_content"
             android:layout_margin="20dp"
             android:layout_weight="0.17"
             android:orientation="vertical">
@@ -41,7 +43,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
-                android:text="Nombre:"
+                android:paddingRight="10dp"
+                android:text="@string/nombreR"
                 android:textColor="@color/secondary"
                 android:textSize="20sp" />
 
@@ -53,16 +56,18 @@
                 android:background="@drawable/box_toolbar"
                 android:singleLine="true"
                 android:nextFocusForward="@+id/editTextApellidos"
-                android:ems="10" />
+                android:ems="10"
+                android:inputType="text"/>
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
-                android:text="Apellidos:"
+                android:paddingRight="10dp"
                 android:textColor="@color/secondary"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:text="@string/apellidosR"/>
 
             <EditText
                 android:id="@+id/editTextApellidos"
@@ -72,14 +77,16 @@
                 android:background="@drawable/box_toolbar"
                 android:singleLine="true"
                 android:nextFocusForward="@+id/editTextPassword"
-                android:ems="10" />
+                android:ems="10"
+                android:inputType="text"/>
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
-                android:text="Password:"
+                android:paddingRight="10dp"
+                android:text="@string/passwordR"
                 android:textColor="@color/secondary"
                 android:textSize="20sp" />
 
@@ -133,7 +140,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="10dp"
-                android:text="Confirmar password:"
+                android:paddingRight="10dp"
+                android:text="@string/passwordCR"
                 android:textColor="@color/secondary"
                 android:textSize="20sp" />
 
@@ -149,19 +157,21 @@
                 android:nextFocusForward="@+id/editTextCorreo"/>
 
             <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:text="Correo:"
-            android:textColor="@color/secondary"
-            android:textSize="20sp" />
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="Correo:"
+                android:textColor="@color/secondary"
+                android:textSize="20sp" />
 
             <EditText
                 android:id="@+id/editTextCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginBottom="5dp"
+                android:paddingRight="10dp"
                 android:background="@drawable/box_toolbar"
                 android:inputType="textEmailAddress"
                 android:singleLine="true"
@@ -183,7 +193,8 @@
                 android:layout_marginBottom="5dp"
                 android:background="@drawable/box_toolbar"
                 android:singleLine="true"
-                android:ems="10" />
+                android:ems="10"
+                android:inputType="phone"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

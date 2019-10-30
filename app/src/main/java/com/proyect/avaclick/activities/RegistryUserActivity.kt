@@ -15,6 +15,12 @@ import androidx.appcompat.widget.Toolbar
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.view.View.OnTouchListener
+import androidx.core.app.ComponentActivity.ExtraData
+import androidx.core.content.ContextCompat.getSystemService
+import android.icu.lang.UCharacter.GraphemeClusterBreak.T
+import android.view.*
+
 
 class RegistryUserActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,10 +28,49 @@ class RegistryUserActivity : AppCompatActivity(){
         setContentView(R.layout.activity_registry_user)
 
         var button = buttonAgregar
+        toolbar.setNavigationIcon(R.drawable.arrowleft)
+        toolbar.setNavigationOnClickListener{
+
+        }
 
         button?.setOnClickListener {
             validateUserOnCreate()
         }
+        editTextPassword.customSelectionActionModeCallback = object : ActionMode.Callback {
+
+            override fun onCreateActionMode(actionMode: ActionMode, menu: Menu): Boolean {
+                return false
+            }
+
+            override fun onPrepareActionMode(actionMode: ActionMode, menu: Menu): Boolean {
+                return false
+            }
+
+            override fun onActionItemClicked(actionMode: ActionMode, item: MenuItem): Boolean {
+                return false
+            }
+
+            override fun onDestroyActionMode(actionMode: ActionMode) {}
+        }
+        editTextPassword.isLongClickable = false
+
+        editTextRepPassword.customSelectionActionModeCallback = object : ActionMode.Callback {
+
+            override fun onCreateActionMode(actionMode: ActionMode, menu: Menu): Boolean {
+                return false
+            }
+
+            override fun onPrepareActionMode(actionMode: ActionMode, menu: Menu): Boolean {
+                return false
+            }
+
+            override fun onActionItemClicked(actionMode: ActionMode, item: MenuItem): Boolean {
+                return false
+            }
+
+            override fun onDestroyActionMode(actionMode: ActionMode) {}
+        }
+        editTextRepPassword.isLongClickable = false
 
         show_pass_btn.setOnClickListener{
             if(editTextPassword.transformationMethod == PasswordTransformationMethod.getInstance()){

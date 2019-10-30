@@ -52,7 +52,6 @@
     <string name="title_activity_perfil_usuario">Datos de la cuenta</string>
 
     <string name="facebook_app_id">267343567291563</string>
-    <string name="todo">TODO</string>
     <string name="usuario">Usuario</string>
     <string name="usu_correo">Usuario o correo electronico</string>
     <string name="contra">Contraseña</string>
@@ -95,4 +94,6 @@
     <string name="apellidosR">Apellidos:</string>
     <string name="passwordR">Password:</string>
     <string name="passwordCR">Confirmar password:</string>
+    <string name="new_report">Un nuevo reporte</string>
+    <string name="reports_storage">Tus reportes almacenados</string>
 </resources>

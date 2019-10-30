@@ -1,10 +1,12 @@
 package com.proyect.avaclick.activities
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
 import android.view.Gravity
+import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -16,11 +18,14 @@ import com.proyect.avaclick.R
 import com.proyect.avaclick.api.RetrofitClient
 import com.proyect.avaclick.models.LoginResponse
 import com.proyect.avaclick.storage.SharedPrefManager
+import com.proyect.avaclick.util.CustomProgressBar
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
 
 
+    val progressBar = CustomProgressBar()
+    val context = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -58,7 +63,7 @@ class LoginActivity : AppCompatActivity() {
             }
 
             val pass16 = encode16(password)
-
+            progressBar.show(context, "Iniciando Sesión....")
             if(android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
 
                 RetrofitClient.instance.userLogin(email, pass16)
@@ -71,14 +76,18 @@ class LoginActivity : AppCompatActivity() {
                             call: Call<LoginResponse>,
                             response: Response<LoginResponse>
                         ) {
+
                             if (response.body()?.exist?.equals(true) ?: (true === null)) {
 
+                                progressBar.dialog.dismiss()
                                 //SharedPrefManager.getInstance(applicationContext).saveUser(response.body()?.user!!)
-                                Toast.makeText(
+                                /*Toast.makeText(
                                     applicationContext,
                                     response.toString(),
                                     Toast.LENGTH_LONG
-                                ).show()
+                                ).show()*/
+
+
                                 val intent = Intent(applicationContext, HomeActivity::class.java)
                                 intent.flags =
                                     Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
@@ -87,6 +96,8 @@ class LoginActivity : AppCompatActivity() {
 
 
                             } else {
+
+                                progressBar.dialog.dismiss()
                                 //Toast.makeText(applicationContext, "Error, no se pudo acceder al usuario", Toast.LENGTH_SHORT).show()
                                 var cons = AlertDialog.Builder(this@LoginActivity)
 
@@ -103,6 +114,7 @@ class LoginActivity : AppCompatActivity() {
                         }
                     })
             }else{
+                progressBar.dialog.dismiss()
                 var cons = AlertDialog.Builder(this@LoginActivity)
 
                 cons.setTitle("Error")
@@ -116,7 +128,7 @@ class LoginActivity : AppCompatActivity() {
                 dialog.show()
             }
 
-        }
+        } //Button of login
 
         btnCreate?.setOnClickListener {
             val intent = Intent(applicationContext, RegistryUserActivity::class.java)

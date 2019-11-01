@@ -31,6 +31,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+
         show_pass.setOnClickListener{
 
             if(txtPasswd.transformationMethod == PasswordTransformationMethod.getInstance()){

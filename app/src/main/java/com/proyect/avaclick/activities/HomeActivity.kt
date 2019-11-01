@@ -1,9 +1,11 @@
 package com.proyect.avaclick.activities
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.proyect.avaclick.R
 import androidx.appcompat.widget.Toolbar
+import com.proyect.avaclick.storage.SharedPrefManager
 
 
 class HomeActivity : AppCompatActivity() {
@@ -17,10 +19,10 @@ class HomeActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
 
-     // if(!SharedPrefManager.getInstance(this).isLoggedIn){
-     //     val intent = Intent(applicationContext, LoginActivity::class.java)
-     //     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-     //     startActivity(intent)
-     // }
+      if(!SharedPrefManager.getInstance(this).isLoggedIn){
+          val intent = Intent(applicationContext, LoginActivity::class.java)
+          intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+          startActivity(intent)
+      }
     }
 }

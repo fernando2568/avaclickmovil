@@ -15,6 +15,7 @@
         <item name="colorPrimaryDark">#000000</item>
         <item name="colorAccent">#000000</item>
         <item name="android:navigationBarColor">#000000</item>
+        <item name="android:windowTranslucentNavigation">true</item>
     </style>
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
@@ -33,10 +34,13 @@
         <item name="android:navigationBarColor">@color/feo</item>
     </style>
 
-    <style name="AppTheme.HomeActivity" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">#000000</item>
-        <item name="colorPrimaryDark">#000000</item>
-        <item name="colorAccent">#000000</item>
+    <style name="AppTheme.HomeActivity">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/feo</item>
+        <item name="colorPrimaryDark">@color/feo</item>
+        <item name="colorAccent">@color/feo</item>
+        <item name="android:statusBarColor">@color/feo</item>
         <item name="android:navigationBarColor">#000000</item>
     </style>
 

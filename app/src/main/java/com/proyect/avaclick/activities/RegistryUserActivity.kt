@@ -29,8 +29,14 @@ class RegistryUserActivity : AppCompatActivity(){
         setContentView(R.layout.activity_registry_user)
 
         var button = buttonAgregar
-        toolbar.setNavigationIcon(R.drawable.arrowleft_white)
-        toolbar.setNavigationOnClickListener{
+        var buttonBack = back_btn
+        var textBack = toolbar_back
+        buttonBack?.setOnClickListener {
+            val intent = Intent(applicationContext, LoginActivity::class.java)
+            startActivity(intent)
+        }
+
+        textBack?.setOnClickListener {
             val intent = Intent(applicationContext, LoginActivity::class.java)
             startActivity(intent)
         }

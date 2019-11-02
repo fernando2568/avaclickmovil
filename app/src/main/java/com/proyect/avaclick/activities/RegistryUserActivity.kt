@@ -21,9 +21,11 @@ import androidx.core.app.ComponentActivity.ExtraData
 import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.view.*
+import androidx.core.content.ContextCompat
 
 
 class RegistryUserActivity : AppCompatActivity(){
+    val context = this
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registry_user)
@@ -43,7 +45,20 @@ class RegistryUserActivity : AppCompatActivity(){
 
         button?.setOnClickListener {
             if(button.backgroundTintList == ColorStateList.valueOf(resources.getColor(R.color.grey_600))){
-                Toast.makeText(this, "Tiene que aceptar terminos y condiciones.", Toast.LENGTH_LONG).show()
+                val builder = AlertDialog.Builder(this@RegistryUserActivity)
+                builder.setTitle("Atención!!")
+                builder.setMessage("Tiene que aceptar terminos y condiciones.")
+                builder.setIcon(R.drawable.alert)
+                builder.setPositiveButton("Aceptar"){dialog, which ->
+                    dialog.cancel()
+                }
+                val dialog: AlertDialog = builder.create()
+                dialog.show()
+
+                val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+                positiveButton.setTextColor(resources.getColor(R.color.white))
+                positiveButton.setBackgroundColor(resources.getColor(R.color.blue_500))
+                positiveButton.background = ContextCompat.getDrawable(context, R.drawable.round_button_basic)
             }else{
                 validateUserOnCreate()
             }

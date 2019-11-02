@@ -120,4 +120,15 @@
             android:textSize="20sp" />
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/cerrarSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:text="Cerrar Sesion"/>
+    </LinearLayout>
+
 </LinearLayout>

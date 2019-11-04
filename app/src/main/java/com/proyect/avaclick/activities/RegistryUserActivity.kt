@@ -125,24 +125,160 @@ class RegistryUserActivity : AppCompatActivity(){
         var password  = editTextPassword.text.toString()
         var rpassword = editTextRepPassword.text.toString()
         var correo    = editTextCorreo.text.toString()
-        var telefono    = editTextTelefono.text.toString()
+        var telefono  = editTextTelefono.text.toString()
+        var celular   = editTextCelular.text.toString()
+        var oficina   = editTextTelOficina.text.toString()
 
         if(usuario == ""){
-            Toast.makeText(this, "Debes ingresar un nombre.", Toast.LENGTH_LONG).show()
+            val builder = AlertDialog.Builder(this@RegistryUserActivity)
+            builder.setTitle("Atención!!")
+            builder.setMessage("Debes ingresar un nombre.")
+            builder.setIcon(R.drawable.alert)
+            builder.setPositiveButton("Aceptar"){dialog, which ->
+                dialog.cancel()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+
+            val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            positiveButton.setTextColor(resources.getColor(R.color.white))
+            positiveButton.setBackgroundColor(resources.getColor(R.color.blue_500))
+            positiveButton.background = ContextCompat.getDrawable(context, R.drawable.round_button_basic)
         }else if(apellidos == ""){
-            Toast.makeText(this, "Debes ingresar apellidos.", Toast.LENGTH_LONG).show()
+            val builder = AlertDialog.Builder(this@RegistryUserActivity)
+            builder.setTitle("Atención!!")
+            builder.setMessage("Debes ingresar apellidos.")
+            builder.setIcon(R.drawable.alert)
+            builder.setPositiveButton("Aceptar"){dialog, which ->
+                dialog.cancel()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+
+            val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            positiveButton.setTextColor(resources.getColor(R.color.white))
+            positiveButton.setBackgroundColor(resources.getColor(R.color.blue_500))
+            positiveButton.background = ContextCompat.getDrawable(context, R.drawable.round_button_basic)
         }else if(password != rpassword){
-            Toast.makeText(this, "Las contraseñas no coinciden.", Toast.LENGTH_LONG).show()
+            val builder = AlertDialog.Builder(this@RegistryUserActivity)
+            builder.setTitle("Atención!!")
+            builder.setMessage("Las contraseñas no coinciden..")
+            builder.setIcon(R.drawable.alert)
+            builder.setPositiveButton("Aceptar"){dialog, which ->
+                dialog.cancel()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+
+            val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            positiveButton.setTextColor(resources.getColor(R.color.white))
+            positiveButton.setBackgroundColor(resources.getColor(R.color.blue_500))
+            positiveButton.background = ContextCompat.getDrawable(context, R.drawable.round_button_basic)
         }else if(password.length < 6){
-            Toast.makeText(this, "La contraseña debe tener minimo 6 caracteres.", Toast.LENGTH_LONG).show()
+            val builder = AlertDialog.Builder(this@RegistryUserActivity)
+            builder.setTitle("Atención!!")
+            builder.setMessage("La contraseña debe tener minimo 6 caracteres.")
+            builder.setIcon(R.drawable.alert)
+            builder.setPositiveButton("Aceptar"){dialog, which ->
+                dialog.cancel()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+
+            val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            positiveButton.setTextColor(resources.getColor(R.color.white))
+            positiveButton.setBackgroundColor(resources.getColor(R.color.blue_500))
+            positiveButton.background = ContextCompat.getDrawable(context, R.drawable.round_button_basic)
         }else if(correo == ""){
-            Toast.makeText(this, "Debes ingrear un correo.", Toast.LENGTH_LONG).show()
+            val builder = AlertDialog.Builder(this@RegistryUserActivity)
+            builder.setTitle("Atención!!")
+            builder.setMessage("Debes ingrear un correo.")
+            builder.setIcon(R.drawable.alert)
+            builder.setPositiveButton("Aceptar"){dialog, which ->
+                dialog.cancel()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+
+            val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            positiveButton.setTextColor(resources.getColor(R.color.white))
+            positiveButton.setBackgroundColor(resources.getColor(R.color.blue_500))
+            positiveButton.background = ContextCompat.getDrawable(context, R.drawable.round_button_basic)
         }else if(!(isEmailValid(correo))){
-            Toast.makeText(this, "El correo no es valido.", Toast.LENGTH_LONG).show()
+            val builder = AlertDialog.Builder(this@RegistryUserActivity)
+            builder.setTitle("Atención!!")
+            builder.setMessage("El correo no es valido.")
+            builder.setIcon(R.drawable.alert)
+            builder.setPositiveButton("Aceptar"){dialog, which ->
+                dialog.cancel()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+
+            val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            positiveButton.setTextColor(resources.getColor(R.color.white))
+            positiveButton.setBackgroundColor(resources.getColor(R.color.blue_500))
+            positiveButton.background = ContextCompat.getDrawable(context, R.drawable.round_button_basic)
         }else if(telefono == ""){
-            Toast.makeText(this, "Debes ingrear un numero de telefono.", Toast.LENGTH_LONG).show()
+            val builder = AlertDialog.Builder(this@RegistryUserActivity)
+            builder.setTitle("Atención!!")
+            builder.setMessage("Debes ingrear un numero de telefono.")
+            builder.setIcon(R.drawable.alert)
+            builder.setPositiveButton("Aceptar"){dialog, which ->
+                dialog.cancel()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+
+            val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            positiveButton.setTextColor(resources.getColor(R.color.white))
+            positiveButton.setBackgroundColor(resources.getColor(R.color.blue_500))
+            positiveButton.background = ContextCompat.getDrawable(context, R.drawable.round_button_basic)
+        }else if(celular == ""){
+            val builder = AlertDialog.Builder(this@RegistryUserActivity)
+            builder.setTitle("Atención!!")
+            builder.setMessage("Debes ingrear un numero de celular.")
+            builder.setIcon(R.drawable.alert)
+            builder.setPositiveButton("Aceptar"){dialog, which ->
+                dialog.cancel()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+
+            val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            positiveButton.setTextColor(resources.getColor(R.color.white))
+            positiveButton.setBackgroundColor(resources.getColor(R.color.blue_500))
+            positiveButton.background = ContextCompat.getDrawable(context, R.drawable.round_button_basic)
+        }else if(oficina == ""){
+            val builder = AlertDialog.Builder(this@RegistryUserActivity)
+            builder.setTitle("Atención!!")
+            builder.setMessage("Debes ingrear un numero de oficina.")
+            builder.setIcon(R.drawable.alert)
+            builder.setPositiveButton("Aceptar"){dialog, which ->
+                dialog.cancel()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+
+            val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            positiveButton.setTextColor(resources.getColor(R.color.white))
+            positiveButton.setBackgroundColor(resources.getColor(R.color.blue_500))
+            positiveButton.background = ContextCompat.getDrawable(context, R.drawable.round_button_basic)
         }else if(!(checkBoxTerminos.isChecked)){
-            Toast.makeText(this, "Tiene que aceptar terminos y condiciones.", Toast.LENGTH_LONG).show()
+            val builder = AlertDialog.Builder(this@RegistryUserActivity)
+            builder.setTitle("Atención!!")
+            builder.setMessage("Tiene que aceptar terminos y condiciones.")
+            builder.setIcon(R.drawable.alert)
+            builder.setPositiveButton("Aceptar"){dialog, which ->
+                dialog.cancel()
+            }
+            val dialog: AlertDialog = builder.create()
+            dialog.show()
+
+            val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+            positiveButton.setTextColor(resources.getColor(R.color.white))
+            positiveButton.setBackgroundColor(resources.getColor(R.color.blue_500))
+            positiveButton.background = ContextCompat.getDrawable(context, R.drawable.round_button_basic)
         }
         else{
             //Crar usuario nuevo
@@ -151,7 +287,7 @@ class RegistryUserActivity : AppCompatActivity(){
             var apPaterno = arrayApellidos[0]
             var apMaterno = arrayApellidos[1]
 
-            RetrofitClient.instance.registryUser(correo,encodedPassword,usuario,apPaterno,apMaterno,telefono, "", "")
+            RetrofitClient.instance.registryUser(correo,encodedPassword,usuario,apPaterno,apMaterno,telefono, oficina, celular)
                 .enqueue(object: Callback<DefaultResponse> {
                     override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
                         Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()

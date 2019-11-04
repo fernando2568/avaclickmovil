@@ -5,7 +5,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
+import android.text.method.TextKeyListener.clear
 import android.view.Gravity
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
@@ -19,6 +21,7 @@ import com.proyect.avaclick.api.RetrofitClient
 import com.proyect.avaclick.models.LoginResponse
 import com.proyect.avaclick.storage.SharedPrefManager
 import com.proyect.avaclick.util.CustomProgressBar
+import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -32,6 +35,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
 
+
         show_pass.setOnClickListener{
 
             if(txtPasswd.transformationMethod == PasswordTransformationMethod.getInstance()){
@@ -41,6 +45,10 @@ class LoginActivity : AppCompatActivity() {
                 show_pass.setBackgroundResource(R.drawable.eye)
                 txtPasswd.transformationMethod = PasswordTransformationMethod.getInstance()
             }
+        }
+
+        lblOlvido.setOnClickListener {
+            val inflater:LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
         }
 
         btnLogin.setOnClickListener {
@@ -70,6 +78,7 @@ class LoginActivity : AppCompatActivity() {
                 RetrofitClient.instance.userLogin(email, pass16)
                     .enqueue(object : Callback<LoginResponse> {
                         override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                            progressBar.dialog.dismiss()
                             Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                         }
 
@@ -81,7 +90,7 @@ class LoginActivity : AppCompatActivity() {
                             if (response.body()?.exist?.equals(true) ?: (true === null)) {
 
                                 progressBar.dialog.dismiss()
-                                //SharedPrefManager.getInstance(applicationContext).saveUser(response.body()?.user!!)
+                                SharedPrefManager.getInstance(applicationContext).saveUser(response.body()?.user!!)
                                 /*Toast.makeText(
                                     applicationContext,
                                     response.toString(),
@@ -130,6 +139,8 @@ class LoginActivity : AppCompatActivity() {
             }
 
         } //Button of login
+
+
 
         btnCreate?.setOnClickListener {
             val intent = Intent(applicationContext, RegistryUserActivity::class.java)

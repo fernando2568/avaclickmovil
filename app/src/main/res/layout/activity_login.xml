@@ -26,7 +26,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="278dp"
+            android:layout_height="290dp"
             android:layout_margin="20dp"
             android:orientation="vertical">
 
@@ -124,18 +124,12 @@
                 android:textColorLink="#ff9e19"
                 android:textSize="15sp" />
 
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
             <TextView
                 android:id="@+id/lblOlvido"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="30dp"
                 android:gravity="center"
+                android:layout_marginTop="10dp"
                 android:text="@string/forget_pass"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:textColor="@color/text_black_text_87"
@@ -144,7 +138,8 @@
 
         </LinearLayout>
 
-        <TextView
+
+        <!--<TextView
             android:id="@+id/textView4"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -154,14 +149,25 @@
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:textColor="@color/text_black_text_87"
             android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textStyle="bold" />-->
 
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:gravity="center"
+                android:text="@string/no_account"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/text_black_text_87"
+                android:textSize="16sp"
+                android:textStyle="bold" />
 
             <Button
                 android:id="@+id/btnCreate"

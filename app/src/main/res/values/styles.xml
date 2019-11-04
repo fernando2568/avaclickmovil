@@ -47,6 +47,7 @@
     <style name="AppTheme.LoginBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="colorAccent">@color/feo</item>
         <item name="android:navigationBarColor">@color/orange_menu</item>
     </style>
 

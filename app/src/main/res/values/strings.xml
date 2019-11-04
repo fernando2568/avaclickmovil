@@ -97,4 +97,11 @@
     <string name="passwordCR">Confirmar password:</string>
     <string name="new_report">Un nuevo reporte</string>
     <string name="reports_storage">Tus reportes almacenados</string>
+
+    <string name="proceso_label_direccion">Buscar dirección: </string>
+    <string name="proceso_label_estado">Estado: </string>
+    <string name="proceso_label_municipio">Municipio: </string>
+    <string name="proceso_label_codigo_postal">Código postal: </string>
+    <string name="proceso_label_colonia">Colonia: </string>
+
 </resources>

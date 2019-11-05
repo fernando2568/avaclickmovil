@@ -30,4 +30,10 @@ interface Api {
         @Field("telOfficeUser") officeTelephone: String,
         @Field("celUser") cellphone:String
     ):Call<DefaultResponse>
+
+    @FormUrlEncoded
+    @POST("RestaurarPassword")
+    fun recoveryPass(
+        @Field("nombreUsuario") email: String
+    ):Call<DefaultResponse>
 }

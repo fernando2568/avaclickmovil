@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.proyect.avaclick">
-
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".HomeApplication"
+        android:name="com.proyect.avaclick.HomeApplication"
         android:allowBackup="true"
         android:icon="@mipmap/iconew"
         android:label="@string/app_name"
@@ -37,6 +36,16 @@
             android:label="Registro de usuarios"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.RegistryTheme" />
+
+        <activity android:name=".activities.ProcessActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.HomeActivity"/>
+
+        <!--<activity android:name=".activities.ProcessActivity"
+            android:label="Formulario Proceso"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme"/>-->
     </application>
 
 </manifest>

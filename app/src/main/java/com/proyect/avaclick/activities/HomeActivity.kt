@@ -24,6 +24,11 @@ class HomeActivity : AppCompatActivity() {
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
+
+        btnConsultar?.setOnClickListener {
+            val intent = Intent(applicationContext, ReportListActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 

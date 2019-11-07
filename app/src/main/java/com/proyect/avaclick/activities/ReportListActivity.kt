@@ -22,6 +22,7 @@ import androidx.core.content.ContextCompat.getSystemService
 import android.icu.lang.UCharacter.GraphemeClusterBreak.T
 import android.view.*
 import androidx.core.content.ContextCompat
+import com.proyect.avaclick.models.Reporte
 import com.proyect.avaclick.models.session
 
 class ReportListActivity : AppCompatActivity() {

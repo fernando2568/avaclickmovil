@@ -7,8 +7,9 @@ import android.view.View
 import android.view.ViewGroup
 import com.proyect.avaclick.R
 import kotlinx.android.synthetic.main.report_list_item.view.*
+import com.proyect.avaclick.models.Reporte
 
-class ReportAdapter(val items : ArrayList<String>, val context: Context) : RecyclerView.Adapter<ViewHolder>() {
+class ReportAdapter(val items : ArrayList<Reporte>, val context: Context) : RecyclerView.Adapter<ViewHolder>() {
 
     override fun getItemCount(): Int {
         return items.size
@@ -19,7 +20,8 @@ class ReportAdapter(val items : ArrayList<String>, val context: Context) : Recyc
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder?.reporte_folio?.text = items[position]
+        val reporte: Reporte = items[position]
+        holder?.reporte_folio?.text = reporte.Folio
     }
 }
 

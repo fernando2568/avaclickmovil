@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:id="@+id/nav_header"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:gravity="bottom"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@mipmap/header_panel_usuario"
+    android:theme="@style/AppTheme.NoActionBar">
+
+    <TextView
+        android:id="@+id/nav_header_text"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:layout_marginLeft="20dp"
+        android:textSize="20sp"
+        android:text="Hola"
+        android:textColor="@color/text_white_text_icons_100"/>
+
+</LinearLayout>

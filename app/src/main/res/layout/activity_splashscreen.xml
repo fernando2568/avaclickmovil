@@ -12,7 +12,7 @@
         android:layout_gravity="center_horizontal"
         android:foregroundGravity="center_vertical|center_horizontal|center"
         android:gravity="center_vertical|center_horizontal"
-        app:srcCompat="@drawable/logo1"
+        app:srcCompat="@mipmap/logo2"
         android:contentDescription="@string/splashFondo" />
 
 </FrameLayout>

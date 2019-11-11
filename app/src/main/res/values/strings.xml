@@ -90,6 +90,7 @@
     <string name="correo_ejemplo">correo@ejemplo.com</string>
     <string name="recuperar_cuenta">Ingresa tu email, te enviaremos un enlace para recuperar tu cuenta.</string>
     <string name="toolbarT">Registro</string>
+    <string name="toolbarTR">Reportes</string>
     <string name="toolbarB">Atrás</string>
     <string name="nombreR">Nombre:</string>
     <string name="apellidosR">Apellidos:</string>

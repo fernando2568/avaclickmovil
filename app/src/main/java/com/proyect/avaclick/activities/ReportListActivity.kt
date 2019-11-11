@@ -36,7 +36,7 @@ class ReportListActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<ListReportResponse>, response: Response<ListReportResponse>) =
                     if(response.body()?.success?.equals(true) ?: (true === null)){
                         //Carga de datos
-                        response.body()?.Reportes?.forEach(){
+                        response.body()?.listado?.forEach(){
                             val report = Reporte(
                                 IdAlmacen = it.IdAlmacen,
                                 Domicilio = it.Domicilio,
@@ -49,7 +49,7 @@ class ReportListActivity : AppCompatActivity() {
                             reports.add(report)
                         }
                         rvReportList.layoutManager = LinearLayoutManager(context)
-                        rvReportList.layoutManager = GridLayoutManager(context, 2)
+                        rvReportList.layoutManager = GridLayoutManager(context, 1)
                         rvReportList.adapter = ReportAdapter(reports, context)
                     }else{
                         val builder = AlertDialog.Builder(this@ReportListActivity)

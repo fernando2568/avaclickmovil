@@ -20,11 +20,13 @@ class ReportAdapter(val items : ArrayList<Reporte>, val context: Context) : Recy
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val reporte: Reporte = items[position]
-        holder?.reporte_folio?.text = reporte.Folio
+        val report: Reporte = items[position]
+        holder?.reporte_folio?.text = report.Folio
+        holder?.reporte_domicilio?.text = report.Domicilio
     }
 }
 
 class ViewHolder (view: View) : RecyclerView.ViewHolder(view) {
     val reporte_folio = view.reporte_folio
+    val reporte_domicilio = view.reporte_domicilio
 }

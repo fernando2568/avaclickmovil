@@ -8,6 +8,7 @@ import retrofit2.http.POST
 import com.proyect.avaclick.models.DefaultResponse
 import com.proyect.avaclick.models.ListReportResponse
 import com.proyect.avaclick.models.LoginResponse
+import com.proyect.avaclick.models.RestorePassResponse
 import okhttp3.internal.Internal
 
 interface Api {
@@ -37,7 +38,7 @@ interface Api {
     @POST("RestaurarPassword")
     fun recoveryPass(
         @Field("nombreUsuario") email: String
-    ):Call<DefaultResponse>
+    ):Call<RestorePassResponse>
 
     @FormUrlEncoded
     @POST("ListadoReportes")

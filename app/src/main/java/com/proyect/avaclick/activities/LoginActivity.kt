@@ -22,6 +22,7 @@ import com.proyect.avaclick.R
 import com.proyect.avaclick.api.RetrofitClient
 import com.proyect.avaclick.models.DefaultResponse
 import com.proyect.avaclick.models.LoginResponse
+import com.proyect.avaclick.models.RestorePassResponse
 import com.proyect.avaclick.storage.SharedPrefManager
 import com.proyect.avaclick.util.CustomProgressBar
 import kotlinx.android.synthetic.main.activity_home.*
@@ -93,17 +94,16 @@ class LoginActivity : AppCompatActivity() {
             // Set a click listener for popup's button widget
             buttonPopup.setOnClickListener{
                 // Dismiss the popup window
-                /*RetrofitClient.instance.recoveryPass(correo).enqueue(object: Callback<DefaultResponse>{
-                    override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
+                RetrofitClient.instance.recoveryPass(correo).enqueue(object: Callback<RestorePassResponse>{
+                    override fun onFailure(call: Call<RestorePassResponse>, t: Throwable) {
                         Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
                     }
 
-                    override fun onResponse(
-                        call: Call<DefaultResponse>,
-                        response: Response<DefaultResponse>
-                    )
+                    override fun onResponse(call: Call<RestorePassResponse>, response: Response<RestorePassResponse>) {
+                        SharedPrefManager.getInstance(applicationContext)
+                    }
 
-                })*/
+                })
                 popupWindow.dismiss()
             }
 

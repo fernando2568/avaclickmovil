@@ -4,11 +4,11 @@
     <group android:checkableBehavior="single">
         <item android:id="@+id/nav_perfil"
             android:icon="@mipmap/user"
-            android:title="Perfil de Usuario" />
+            android:title="@string/perfil_de_usuario" />
 
         <item android:id="@+id/nav_sessionOff"
             android:icon="@mipmap/clouse"
-            android:title="Cerrar Sesión" />
+            android:title="@string/cerrar_sesion" />
 
     </group>
 

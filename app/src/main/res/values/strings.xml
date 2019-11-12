@@ -104,5 +104,9 @@
     <string name="proceso_label_municipio">Municipio: </string>
     <string name="proceso_label_codigo_postal">Código postal: </string>
     <string name="proceso_label_colonia">Colonia: </string>
+    <string name="perfil_de_usuario">Perfil de Usuario</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+
+    <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
 
 </resources>

@@ -3,15 +3,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_main"
-    tools:ignore="UnusedNavigation"
-    app:startDestination="@+id/perfil_screen">
+    app:startDestination="@+id/nav_home"
+    tools:ignore="UnusedNavigation">
 
     <fragment
-        android:id="@+id/perfil_screen"
+        android:id="@+id/nav_home"
+        android:name="com.proyect.avaclick.activities.HomeActivity"
+        android:label="Inicio"
+        tools:layout="@layout/activity_home"/>
+
+    <fragment
+        android:id="@+id/nav_perfil"
         android:label="@string/perfil"/>
 
     <fragment
-        android:id="@+id/session_screen"
-        android:label="@string/perfil"/>
+        android:id="@+id/nav_sessionOff"
+        android:label="@string/cerrar_sesion"/>
 
 </navigation>

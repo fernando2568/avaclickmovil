@@ -13,7 +13,7 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".activities.ReportListActivity"></activity>
-        <activity android:name=".activities.UserListActivity" />
+        <!--<activity android:name=".activities.UserListActivity" />-->
         <activity
             android:name=".util.SplashScreen"
             android:theme="@style/AppTheme.NoActionBar">

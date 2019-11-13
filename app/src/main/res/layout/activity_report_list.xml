@@ -44,20 +44,14 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="1.0" />
 
-            <TextView
-                android:id="@+id/toolbar_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="96dp"
-                android:gravity="center"
-                android:text="@string/toolbarTR"
-                android:textColor="@color/white"
-                android:textSize="20sp"
+            <ImageView
+                android:id="@+id/centerImg"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="220dp"
+                android:src="@drawable/consultar1"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/toolbar_back"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0" />
+                app:layout_constraintStart_toStartOf="parent" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

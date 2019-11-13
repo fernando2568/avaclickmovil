@@ -18,6 +18,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.proyect.avaclick.models.Reporte
 import com.proyect.avaclick.models.session
+import com.proyect.avaclick.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_report_list.*
 
 class ReportListActivity : AppCompatActivity() {
@@ -28,7 +29,16 @@ class ReportListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_report_list)
         val reports: ArrayList<Reporte> = ArrayList()
 
-        RetrofitClient.instance.listReports(268)
+        back_btn?.setOnClickListener {
+            val intent = Intent(applicationContext, HomeActivity::class.java)
+            startActivity(intent)
+        }
+
+        toolbar_back?.setOnClickListener {
+            val intent = Intent(applicationContext, HomeActivity::class.java)
+            startActivity(intent)
+        }
+        RetrofitClient.instance.listReports(SharedPrefManager.getInstance(this).loggedUser)
             .enqueue(object: Callback<ListReportResponse> {
                 override fun onFailure(call: Call<ListReportResponse>, t: Throwable) {
                     Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()

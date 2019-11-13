@@ -38,6 +38,10 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+        btnConsultar?.setOnClickListener {
+            val intent = Intent(applicationContext, ReportListActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

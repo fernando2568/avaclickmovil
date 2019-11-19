@@ -57,28 +57,47 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    <ScrollView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="636dp"
+        android:layout_height="match_parent"
         android:layout_margin="15dp"
         android:layout_weight="0.17"
-        android:background="#EEEEEE"
+        android:background="@color/fond"
         android:orientation="vertical">
 
-        <LinearLayout
+        <ListView
+            android:id="@+id/listReportes"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:isScrollContainer="?android:attr/windowFullscreen"
-            android:orientation="vertical"
-            android:weightSum="1">
+            android:layout_height="600dp"></ListView>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvReportList"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        </LinearLayout>
+            <Button
+                android:id="@+id/previo"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Previo"
+                android:textColor="@color/white"
+                android:background="@drawable/round_button_list_disabled"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-    </ScrollView>
+            <Button
+                android:id="@+id/siguiente"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/round_button_list"
+                android:textColor="@color/white"
+                android:text="Siguiente"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
 </LinearLayout>

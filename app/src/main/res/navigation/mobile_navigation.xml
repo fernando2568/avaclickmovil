@@ -2,22 +2,24 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/navigation_main"
-    app:startDestination="@+id/nav_home"
-    tools:ignore="UnusedNavigation">
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.proyect.avaclick.activities.HomeActivity"
-        android:label="Inicio"
+        class="com.proyect.avaclick.activities.HomeActivity"
+        android:label="@string/inicio"
         tools:layout="@layout/activity_home"/>
 
     <fragment
         android:id="@+id/nav_perfil"
-        android:label="@string/perfil"/>
+        class="com.proyect.avaclick.activities.PerfilUserActivity"
+        android:label="@string/perfil_de_usuario"
+        tools:layout="@layout/activity_perfil_user"/>
 
     <fragment
         android:id="@+id/nav_sessionOff"
         android:label="@string/cerrar_sesion"/>
+
 
 </navigation>

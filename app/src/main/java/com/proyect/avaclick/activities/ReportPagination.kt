@@ -25,7 +25,7 @@ class ReportPagination(_totalItems: Int, _itemsPerPage: Int, _itemsRemaining: In
         val pageData: ArrayList<Reporte> = ArrayList()
 
         if(currentPage==this.lastPage && this.itemsRemaining > 0){
-            for (i in startItem .. (startItem + (this.itemsPerPage-1))) {
+            for (i in startItem .. (startItem + (this.itemsRemaining-1))) {
                 val report: Reporte = reports[i]
                 val itemOfPage = Reporte(
                     IdAlmacen = report.IdAlmacen,

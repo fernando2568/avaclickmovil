@@ -107,10 +107,10 @@ class ReportListActivity : AppCompatActivity() {
            previo.isEnabled = true
            previo.setBackgroundResource(R.drawable.round_button_list)
        }else if(currentPage == 0){
-           previo.isEnabled = true
-           previo.setBackgroundResource(R.drawable.round_button_list)
-           siguiente.isEnabled = false
-           siguiente.setBackgroundResource(R.drawable.round_button_list_disabled)
+           previo.isEnabled = false
+           previo.setBackgroundResource(R.drawable.round_button_list_disabled)
+           siguiente.isEnabled = true
+           siguiente.setBackgroundResource(R.drawable.round_button_list)
        }else if(currentPage >= 1){
            previo.isEnabled =  true
            previo.setBackgroundResource(R.drawable.round_button_list)

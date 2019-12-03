@@ -18,6 +18,9 @@ import com.proyect.avaclick.models.Reporte
 import com.proyect.avaclick.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_report_list.*
 import kotlin.math.absoluteValue
+import java.io.File
+import java.util.jar.Manifest
+import android.os.Environment
 
 class ReportListActivity : AppCompatActivity() {
     val context = this
@@ -27,6 +30,7 @@ class ReportListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report_list)
+        //
         val reports: ArrayList<Reporte> = ArrayList()
         back_btn?.setOnClickListener {
             val intent = Intent(applicationContext, HomeActivity::class.java)
@@ -57,6 +61,16 @@ class ReportListActivity : AppCompatActivity() {
                             )
                             reports.add(report)
                         }
+                        val folder_main = "Reportes"
+
+                        val folder = File(Environment.getExternalStorageDirectory(), folder_main)
+                        if(!folder.exists()){
+                            folder.mkdirs()
+                            reports?.forEach(){
+                                var url = it.UrlPdf
+                            }
+                        }
+
                         var reportPagination = ReportPagination(reports.size,10, reports.size % 10, reports.size/10, reports)
                         var totalPages: Int = reportPagination.totalItems / reportPagination.itemsPerPage
 
@@ -78,9 +92,6 @@ class ReportListActivity : AppCompatActivity() {
                             listReportes.adapter = adapter
                             toggleButtons(currentPage, totalPages)
                         }
-                        /*rvReportList.layoutManager = LinearLayoutManager(context)
-                        rvReportList.layoutManager = GridferLayoutManager(context, 1)
-                        rvReportList.adapter = ReportAdapter(reports, context)*/
                     }else{
                         val builder = AlertDialog.Builder(this@ReportListActivity)
                         builder.setTitle("Error!!")

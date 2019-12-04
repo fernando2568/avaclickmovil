@@ -68,6 +68,7 @@ class ReportListActivity : AppCompatActivity() {
                             folder.mkdirs()
                             reports?.forEach(){
                                 var url = it.UrlPdf
+                                DownloadFile().execute(url)
                             }
                         }
 

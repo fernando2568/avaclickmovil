@@ -68,7 +68,7 @@ class ReportListActivity : AppCompatActivity() {
                             folder.mkdirs()
                             reports?.forEach(){
                                 var url = it.UrlPdf
-                                DownloadFile().execute(url)
+                                DownloadFile().execute("http://www.africau.edu/images/default/sample.pdf")
                             }
                         }
 

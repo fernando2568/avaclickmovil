@@ -45,6 +45,7 @@ class DownloadFile() : AsyncTask<String, String, String>() {
                 output.write(data, 0, count)
             }
             output.flush()
+            
             output.close()
             input.close()
             return "Downloaded"

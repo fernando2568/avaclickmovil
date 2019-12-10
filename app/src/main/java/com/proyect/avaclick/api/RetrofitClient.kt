@@ -9,7 +9,7 @@ object RetrofitClient {
 
     private val AUTH = "Basic "+ Base64.encodeToString("belalkhan:123456".toByteArray(), Base64.NO_WRAP)
 
-    private const val BASE_URL = "http://192.168.15.100:8081/Android/"
+    public const val BASE_URL = "http://192.168.15.100:8081/Android/"
     //private const val BASE_URL = "http://ipati2.ddns.net:8088/Android/"
 
     private val okHttpClient = OkHttpClient.Builder()

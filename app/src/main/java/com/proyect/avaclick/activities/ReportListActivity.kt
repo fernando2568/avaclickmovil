@@ -1,5 +1,6 @@
 package com.proyect.avaclick.activities
 
+import android.app.DownloadManager
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -68,7 +69,7 @@ class ReportListActivity : AppCompatActivity() {
                             folder.mkdirs()
                             reports?.forEach(){
                                 var url = it.UrlPdf
-                                DownloadFile().execute("http://www.africau.edu/images/default/sample.pdf")
+                                DownloadFile().execute(RetrofitClient.BASE_URL + url)
                             }
                         }
 

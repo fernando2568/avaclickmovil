@@ -1,27 +1,22 @@
 package com.proyect.avaclick.activities
 
-import android.app.DownloadManager
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.ArrayAdapter
+import android.os.Environment
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.proyect.avaclick.R
 import com.proyect.avaclick.api.RetrofitClient
 import com.proyect.avaclick.models.ListReportResponse
-import androidx.appcompat.app.AlertDialog
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import androidx.core.content.ContextCompat
 import com.proyect.avaclick.models.Reporte
 import com.proyect.avaclick.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_report_list.*
-import kotlin.math.absoluteValue
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.io.File
-import java.util.jar.Manifest
-import android.os.Environment
 
 class ReportListActivity : AppCompatActivity() {
     val context = this
@@ -62,14 +57,17 @@ class ReportListActivity : AppCompatActivity() {
                             )
                             reports.add(report)
                         }
+                        //}
+                        val file =
+                            File(Environment.getExternalStorageDirectory().toString() + "/avaclickpdf/")
                         val folder_main = "Reportes"
 
                         val folder = File(Environment.getExternalStorageDirectory(), folder_main)
                         if(!folder.exists()){
                             folder.mkdirs()
                             reports?.forEach(){
-                                var url = it.UrlPdf
-                                DownloadFile().execute(RetrofitClient.BASE_URL + url)
+                                var url = RetrofitClient.BASE_URL + it.UrlPdf
+                                DownloadFile().execute(url)
                             }
                         }
 

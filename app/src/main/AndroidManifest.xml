@@ -19,6 +19,11 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.ListReportsTheme" />
         <activity
+            android:name=".activities.PdfActivity"
+            android:label="PDF"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".util.SplashScreen"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>

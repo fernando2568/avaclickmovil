@@ -67,10 +67,10 @@ class ReportListActivity : AppCompatActivity() {
                         val folder = File(Environment.getExternalStorageDirectory(), folder_main)
                         if(!folder.exists()){
                             folder.mkdirs()
-                            reports?.forEach(){
+                            /*reports?.forEach(){
                                 var url = it.UrlPdf
                                 DownloadFile().execute(RetrofitClient.BASE_URL + url)
-                            }
+                            }*/
                         }
 
                         var reportPagination = ReportPagination(reports.size,10, reports.size % 10, reports.size/10, reports)

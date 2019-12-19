@@ -1,11 +1,11 @@
 package com.proyect.avaclick.activities
 
-import android.app.DownloadManager
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
-import android.widget.ArrayAdapter
 import android.widget.Toast
 import com.proyect.avaclick.R
 import com.proyect.avaclick.api.RetrofitClient
@@ -18,15 +18,14 @@ import androidx.core.content.ContextCompat
 import com.proyect.avaclick.models.Reporte
 import com.proyect.avaclick.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_report_list.*
-import kotlin.math.absoluteValue
 import java.io.File
-import java.util.jar.Manifest
 import android.os.Environment
+import androidx.core.app.ActivityCompat
 
 class ReportListActivity : AppCompatActivity() {
     val context = this
     var currentPage = 0
-
+    var MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,37 +61,51 @@ class ReportListActivity : AppCompatActivity() {
                             )
                             reports.add(report)
                         }
-                        val folder_main = "Reportes"
 
-                        val folder = File(Environment.getExternalStorageDirectory(), folder_main)
-                        if(!folder.exists()){
-                            folder.mkdirs()
-                            /*reports?.forEach(){
-                                var url = it.UrlPdf
-                                DownloadFile().execute(RetrofitClient.BASE_URL + url)
-                            }*/
-                        }
+                        if (ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                            if (ActivityCompat.shouldShowRequestPermissionRationale(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+                                val builder = AlertDialog.Builder(this@ReportListActivity)
+                                builder.setTitle("Atención!!")
+                                builder.setMessage("Se debe aceptar los permisos correspondientes para acceder a este listado.")
+                                builder.setIcon(R.drawable.alert)
+                                builder.setPositiveButton("Aceptar"){dialog, which ->
+                                    val intent = Intent(applicationContext, HomeActivity::class.java)
+                                    startActivity(intent)
+                                }
+                                val dialog: AlertDialog = builder.create()
+                                dialog.show()
+                            } else {
+                                ActivityCompat.requestPermissions(context, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE)
+                            }
+                        } else {
+                            val folder_main = "Reportes"
 
-                        var reportPagination = ReportPagination(reports.size,10, reports.size % 10, reports.size/10, reports)
-                        var totalPages: Int = reportPagination.totalItems / reportPagination.itemsPerPage
+                            val folder = File(Environment.getExternalStorageDirectory(), folder_main)
+                            if(!folder.exists()){
+                                folder.mkdirs()
+                            }
 
-                        previo.isEnabled = false
-                        //Adapter
-                        val adapter = ReportAdapter(context, reportPagination.generatePage(currentPage))
-                        listReportes.adapter = adapter
+                            var reportPagination = ReportPagination(reports.size,10, reports.size % 10, reports.size/10, reports)
+                            var totalPages: Int = reportPagination.totalItems / reportPagination.itemsPerPage
 
-                        siguiente.setOnClickListener {
-                            currentPage = currentPage?.plus(1)
+                            previo.isEnabled = false
+                            //Adapter
                             val adapter = ReportAdapter(context, reportPagination.generatePage(currentPage))
                             listReportes.adapter = adapter
-                            toggleButtons(currentPage, totalPages)
-                        }
 
-                        previo.setOnClickListener {
-                            currentPage = currentPage?.dec()
-                            val adapter = ReportAdapter(context, reportPagination.generatePage(currentPage))
-                            listReportes.adapter = adapter
-                            toggleButtons(currentPage, totalPages)
+                            siguiente.setOnClickListener {
+                                currentPage = currentPage?.plus(1)
+                                val adapter = ReportAdapter(context, reportPagination.generatePage(currentPage))
+                                listReportes.adapter = adapter
+                                toggleButtons(currentPage, totalPages)
+                            }
+
+                            previo.setOnClickListener {
+                                currentPage = currentPage?.dec()
+                                val adapter = ReportAdapter(context, reportPagination.generatePage(currentPage))
+                                listReportes.adapter = adapter
+                                toggleButtons(currentPage, totalPages)
+                            }
                         }
                     }else{
                         val builder = AlertDialog.Builder(this@ReportListActivity)
@@ -130,5 +143,22 @@ class ReportListActivity : AppCompatActivity() {
            siguiente.isEnabled = true
            siguiente.setBackgroundResource(R.drawable.round_button_list)
        }
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>, grantResults: IntArray) {
+        when (requestCode) {
+            MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE -> {
+                if ((grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    finish()
+                    startActivity(getIntent())
+                } else {
+                    val intent = Intent(applicationContext, HomeActivity::class.java)
+                    startActivity(intent)
+                }
+                return
+            }
+            else -> {
+            }
+        }
     }
 }

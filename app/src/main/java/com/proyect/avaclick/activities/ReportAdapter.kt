@@ -1,8 +1,10 @@
 package com.proyect.avaclick.activities
 
+import android.Manifest
 import android.app.DownloadManager
 import android.content.Context
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Environment
 import android.os.Bundle
@@ -11,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import com.proyect.avaclick.R
 import com.proyect.avaclick.api.RetrofitClient
 import kotlinx.android.synthetic.main.report_list_item.view.*

@@ -1,21 +1,26 @@
 package com.proyect.avaclick.activities
 
+import android.Manifest
 import android.app.DownloadManager
 import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 import android.os.Environment
-import androidx.recyclerview.widget.RecyclerView
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.Toast
-import androidx.core.content.ContextCompat
+import androidx.core.app.ActivityCompat
 import com.proyect.avaclick.R
 import com.proyect.avaclick.api.RetrofitClient
 import kotlinx.android.synthetic.main.report_list_item.view.*
 import com.proyect.avaclick.models.Reporte
 import java.io.File
+import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.startActivity
 
 class ReportAdapter(val context: Context, val dataSource: ArrayList<Reporte>) : BaseAdapter() {
     private val inflater: LayoutInflater = context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
@@ -51,8 +56,13 @@ class ReportAdapter(val context: Context, val dataSource: ArrayList<Reporte>) : 
                 request.setDescription("Descarga de reporte en PDF.")
                 request.setDestinationInExternalPublicDir("/Reportes", report.Folio + ".pdf")
                 downloadmanager.enqueue(request)
+                val intent = Intent(context, PdfActivity::class.java)
+                intent.putExtra("pdfFile", report.Folio + ".pdf")
+                context.startActivity(intent)
             }else{
-                Toast.makeText(context, "Archivo ya descargado", Toast.LENGTH_LONG).show()
+                val intent = Intent(context, PdfActivity::class.java)
+                intent.putExtra("pdfFile", report.Folio + ".pdf")
+                context.startActivity(intent)
             }
         }
 

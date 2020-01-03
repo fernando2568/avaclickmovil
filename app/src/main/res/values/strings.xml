@@ -100,7 +100,6 @@
 
     <string name="proceso_label_direccion">Buscar dirección: </string>
     <string name="proceso_label_estado">Estado: </string>
-    <string name="proceso_label_foto">Subir foto</string>
     <string name="proceso_label_municipio">Municipio: </string>
     <string name="proceso_label_codigo_postal">Código postal: </string>
     <string name="proceso_label_colonia">Colonia: </string>0.
@@ -141,5 +140,6 @@
     <string name="proceso_label_seguridad">Seguridad</string>
     <string name="proceso_label_jardin">Jardín</string>
     <string name="proceso_label_estudio">Estudio</string>
+
 
 </resources>

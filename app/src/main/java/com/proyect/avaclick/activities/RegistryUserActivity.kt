@@ -299,7 +299,20 @@ class RegistryUserActivity : AppCompatActivity(){
                             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
                             startActivity(intent)
                         }else{
-                            Toast.makeText(applicationContext, response.body()?.valido.toString(), Toast.LENGTH_LONG).show()
+                            val builder = AlertDialog.Builder(this@RegistryUserActivity)
+                            builder.setTitle("Error!!")
+                            builder.setMessage(response.body()?.valido.toString())
+                            builder.setIcon(R.drawable.alert)
+                            builder.setPositiveButton("Aceptar"){dialog, which ->
+                                dialog.cancel()
+                            }
+                            val dialog: AlertDialog = builder.create()
+                            dialog.show()
+
+                            val positiveButton = dialog.getButton(AlertDialog.BUTTON_POSITIVE)
+                            positiveButton.setTextColor(resources.getColor(R.color.white))
+                            positiveButton.setBackgroundColor(resources.getColor(R.color.blue_500))
+                            positiveButton.background = ContextCompat.getDrawable(context, R.drawable.round_button_basic)
                         }
                 })
         }

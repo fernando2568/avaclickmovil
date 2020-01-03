@@ -6,25 +6,23 @@ import android.os.Build
 import android.os.Bundle
 import android.text.method.HideReturnsTransformationMethod
 import android.text.method.PasswordTransformationMethod
-import android.text.method.TextKeyListener.clear
 import android.transition.Slide
 import android.transition.TransitionManager
 import android.view.Gravity
 import android.view.LayoutInflater
-import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import com.proyect.avaclick.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import com.proyect.avaclick.R
 import com.proyect.avaclick.api.RetrofitClient
-import com.proyect.avaclick.models.DefaultResponse
 import com.proyect.avaclick.models.LoginResponse
+import com.proyect.avaclick.models.RestorePassResponse
 import com.proyect.avaclick.storage.SharedPrefManager
 import com.proyect.avaclick.util.CustomProgressBar
-import kotlinx.android.synthetic.main.activity_home.*
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity() {
@@ -50,7 +48,9 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        //boton para abrir modal para recuperar contraseña
         lblOlvido.setOnClickListener {
+
             val inflater:LayoutInflater = getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
 
             // Inflate a custom view using layout inflater
@@ -62,6 +62,7 @@ class LoginActivity : AppCompatActivity() {
                 LinearLayout.LayoutParams.WRAP_CONTENT, // Width of popup window
                 LinearLayout.LayoutParams.WRAP_CONTENT // Window height
             )
+            popupWindow?.isFocusable = true
 
             // Set an elevation for the popup window
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -84,32 +85,46 @@ class LoginActivity : AppCompatActivity() {
             }
 
             // Get the widgets reference from custom view
-            val correo = view.findViewById<TextView>(R.id.txtUsuario).toString()
+
             val buttonPopup = view.findViewById<Button>(R.id.btnAceptar)
-
-            // Set click listener for popup window's text view
-
+            val botonCerrar = view.findViewById<ImageButton>(R.id.imgCerrar)
 
             // Set a click listener for popup's button widget
             buttonPopup.setOnClickListener{
                 // Dismiss the popup window
-                /*RetrofitClient.instance.recoveryPass(correo).enqueue(object: Callback<DefaultResponse>{
-                    override fun onFailure(call: Call<DefaultResponse>, t: Throwable) {
-                        Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG).show()
-                    }
+                val nombreUsuario = view.findViewById<EditText>(R.id.txtUsuario).text.toString()
+                if(nombreUsuario.isEmpty()){
+                    txtPasswd.error = "Email required"
+                    txtPasswd.requestFocus()
+                    return@setOnClickListener
+                }else {
+                    RetrofitClient.instance.recoveryPass(nombreUsuario)
+                        .enqueue(object : Callback<RestorePassResponse> {
+                            override fun onFailure(call: Call<RestorePassResponse>, t: Throwable) {
+                                Toast.makeText(applicationContext, t.message, Toast.LENGTH_LONG)
+                                    .show()
+                            }
 
-                    override fun onResponse(
-                        call: Call<DefaultResponse>,
-                        response: Response<DefaultResponse>
-                    )
+                            override fun onResponse(
+                                call: Call<RestorePassResponse>,
+                                response: Response<RestorePassResponse>
+                            ) {
+                                RetrofitClient.instance.recoveryPass(nombreUsuario)
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Solicitud enviada",
+                                    Toast.LENGTH_LONG
+                                ).show()
+                            }
 
-                })*/
-                popupWindow.dismiss()
+                        })
+                    popupWindow.dismiss()
+                }
             }
 
-            // Set a dismiss listener for popup window
-            popupWindow.setOnDismissListener {
-                Toast.makeText(applicationContext,"Popup closed",Toast.LENGTH_SHORT).show()
+            botonCerrar.setOnClickListener {
+                popupWindow.dismiss()
+                txtPasswd.error = null
             }
 
 
@@ -121,7 +136,7 @@ class LoginActivity : AppCompatActivity() {
                 0, // X offset
                 0 // Y offset
             )
-        }
+        } //cerrando boton de modal para recuperar contraseña
 
         btnLogin.setOnClickListener {
 
@@ -171,8 +186,7 @@ class LoginActivity : AppCompatActivity() {
 
 
                                 val intent = Intent(applicationContext, HomeActivity::class.java)
-                                intent.flags =
-                                    Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
 
                                 startActivity(intent)
 

@@ -100,8 +100,46 @@
 
     <string name="proceso_label_direccion">Buscar dirección: </string>
     <string name="proceso_label_estado">Estado: </string>
+    <string name="proceso_label_foto">Subir foto</string>
     <string name="proceso_label_municipio">Municipio: </string>
     <string name="proceso_label_codigo_postal">Código postal: </string>
-    <string name="proceso_label_colonia">Colonia: </string>
+    <string name="proceso_label_colonia">Colonia: </string>0.
+    <string name="proceso_label_calle">Calle: </string>
+    <string name="proceso_label_numero_ext">Núm Ext: </string>
+    <string name="proceso_label_numero_int">Núm Int: </string>
+    <string name="proceso_label_lote">Lote: </string>
+    <string name="proceso_label_manzana">Manzana: </string>
+    <string name="proceso_label_tipo_inmueble">Tipo de Inmueble</string>
+    <string name="proceso_label_casa_habitacion">Casa Habitación</string>
+    <string name="proceso_label_casa_condominio">Casa Condominio</string>
+    <string name="proceso_label_dep_condominio">Departamento Condominio</string>
+    <string name="proceso_label_terreno_habitacional">Terreno Habitacional</string>
+    <string name="proceso_label_opinion">Opinión de Valor</string>
+    <string name="proceso_label_comprar">Comprar</string>
+    <string name="proceso_label_vender">Vender</string>
+    <string name="proceso_label_informar">Informativo</string>
+    <string name="proceso_label_caracteristicas">Caracteristicas</string>
+    <string name="proceso_label_recamara">Recamara</string>
+    <string name="proceso_label_cochera">Cochera</string>
+    <string name="proceso_label_banio">Baño</string>
+    <string name="proceso_label_medio_banio">Medio Baño</string>
+    <string name="proceso_label_piso">Núm. Pisos</string>
+    <string name="proceso_label_terreno">Terreno m2</string>
+    <string name="proceso_label_construccion">Construcción m2</string>
+    <string name="proceso_label_edo_conservacion">Estado de Conservación</string>
+    <string name="proceso_label_edad">Edad del Inmueble</string>
+    <string name="proceso_label_amenidades">Amenidades</string>
+    <string name="proceso_label_aire">Aire Acondicionado </string>
+    <string name="proceso_label_jacuzzi">Jacuzzi</string>
+    <string name="proceso_label_alberca">Alberca</string>
+    <string name="proceso_label_lavanderia">Lavanderia</string>
+    <string name="proceso_label_amueblado">Amueblado</string>
+    <string name="proceso_label_cocina">Cocina Integral</string>
+    <string name="proceso_label_terraza">Terraza</string>
+    <string name="proceso_label_gym">GYM</string>
+    <string name="proceso_label_elevador">Elevador</string>
+    <string name="proceso_label_seguridad">Seguridad</string>
+    <string name="proceso_label_jardin">Jardín</string>
+    <string name="proceso_label_estudio">Estudio</string>
 
 </resources>

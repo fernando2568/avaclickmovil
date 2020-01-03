@@ -4,11 +4,16 @@
     android:layout_height="match_parent">
 
     <!--Incluir iframe del fragment-->
-
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></FrameLayout>
     <fragment
         android:id="@+id/fragment"
-        android:name="com.proyect.avaclick.activities.fragments.ProcesoFragment"
         android:layout_width="match_parent"
-        android:layout_height="651dp"
-        android:layout_marginTop="80dp" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="80dp"
+        class="com.proyect.avaclick.activities.fragments.DomicilioFragment"/>
 </LinearLayout>

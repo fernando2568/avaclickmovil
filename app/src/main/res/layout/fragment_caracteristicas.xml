@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/proceso_label_caracteristicas"
+        android:textSize="28dp"
+        android:textColor="@color/orange">
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/imageRec"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:src="@drawable/cama"></androidx.appcompat.widget.AppCompatImageView>
+        <RadioGroup
+            android:id="@+id/recamara"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/rec_0"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="bottom|center"
+                android:drawableStart="@drawable/s0"
+                android:checked="true"
+                style="@style/RadioButtonChar" >
+            </RadioButton>
+            <RadioButton
+                android:id="@+id/rec_1"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:gravity="bottom|center"
+                android:drawableStart="@drawable/s1"
+                android:checked="true"
+                style="@style/RadioButtonChar" >
+            </RadioButton>
+        </RadioGroup>
+    </LinearLayout>
+</LinearLayout>

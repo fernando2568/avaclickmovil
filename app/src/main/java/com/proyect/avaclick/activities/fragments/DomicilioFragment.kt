@@ -10,7 +10,7 @@ import androidx.fragment.app.FragmentContainer
 import com.proyect.avaclick.R
 
 
-class ProcesoFragment : Fragment(){
+ class DomicilioFragment : Fragment(){
      override fun onCreateView(
          inflater: LayoutInflater,
          container: ViewGroup?,

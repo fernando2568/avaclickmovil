@@ -3,6 +3,7 @@
     package="com.proyect.avaclick">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
@@ -54,6 +55,12 @@
             android:theme="@style/AppTheme.RegistryTheme" />
         <activity
             android:name=".activities.ProcessActivity"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.HomeActivity" />
+
+        <activity
+            android:name=".activities.PerfilUserActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.HomeActivity" />

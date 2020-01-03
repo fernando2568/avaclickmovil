@@ -90,6 +90,7 @@
     <string name="correo_ejemplo">correo@ejemplo.com</string>
     <string name="recuperar_cuenta">Ingresa tu email, te enviaremos un enlace para recuperar tu cuenta.</string>
     <string name="toolbarT">Registro</string>
+    <string name="toolbarTR">Reportes</string>
     <string name="toolbarB">Atrás</string>
     <string name="nombreR">Nombre:</string>
     <string name="apellidosR">Apellidos:</string>
@@ -141,5 +142,22 @@
     <string name="proceso_label_jardin">Jardín</string>
     <string name="proceso_label_estudio">Estudio</string>
 
+    <string name="appbar_scrolling_view_behavior" translatable="false">com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <string name="ap_patern">Ap. Patern</string>
+    <string name="celular">Teléfono Celular</string>
+    <string name="tel_casa">Teléfono Casa</string>
+    <string name="tel_oficina">Teléfono Oficina</string>
+    <string name="ap_materno">Ap. Materno</string>
 
 </resources>

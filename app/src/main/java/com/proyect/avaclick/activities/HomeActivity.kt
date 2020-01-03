@@ -3,26 +3,24 @@ package com.proyect.avaclick.activities
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.AdapterView
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModelProviders
+import com.mikepenz.google_material_typeface_library.GoogleMaterial
+import com.mikepenz.iconics.IconicsDrawable
 import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeader
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeaderBuilder
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IProfile
 import com.proyect.avaclick.R
 import com.proyect.avaclick.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_home.*
-import kotlinx.android.synthetic.main.activity_login.*
 
 
 class HomeActivity : AppCompatActivity() {
@@ -33,25 +31,35 @@ class HomeActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        /*accountHeader?.addProfiles(
-           ProfileDrawerItem()
-               .withName("nombre")
-               .withEmail("correo")
-               .withIcon(
-                   IconicsDrawable(
-                       this@Main2Activity,
-                       GoogleMaterial.Icon.gmd_account_circle
-                   ).color(Color.WHITE).actionBar()
-               )
-       )*/
-
+        accountHeader?.addProfiles(
+            ProfileDrawerItem()
+                .withName(SharedPrefManager.getInstance(this).nameUser)
+                .withIcon(
+                    IconicsDrawable(
+                        this@HomeActivity,
+                        GoogleMaterial.Icon.gmd_account_circle
+                    ).color(Color.WHITE).actionBar()
+                )
+        )
         accountHeader = AccountHeaderBuilder()
             .withActivity(this)
             .withHeaderBackground(R.mipmap.fondo)
             .withOnAccountHeaderListener { view: View?, profile: IProfile<*>?, currentProfile: Boolean -> false }
             .build()
 
+        /*val profile = ProfileDrawerItem().withName(
+            SharedPrefManager.getInstance(this).nameUser)
+            .withIcon(IconicsDrawable(this@HomeActivity, GoogleMaterial.Icon.gmd_account_circle).color(Color.WHITE).actionBar())
 
+        accountHeader = AccountHeaderBuilder()
+            .withActivity(this)
+            .withTranslucentStatusBar(true)
+            .withHeaderBackground(R.mipmap.fondo)
+            .withOnAccountHeaderListener { view: View?, profile: IProfile<*>?, currentProfile: Boolean -> false }
+            .withTextColor(Color.BLACK)
+            .addProfiles(profile)
+            .withSavedInstance(savedInstanceState)
+            .build()*/
 
         val drawer: Drawer = DrawerBuilder(this)
             .withToolbar(toolbar)
@@ -62,7 +70,7 @@ class HomeActivity : AppCompatActivity() {
                     Color.BLACK
                 ),
                 //new SecondaryDrawerItem().withName("Actualizar").withTextColor(Color.WHITE).withIconColorRes(R.color.orange).withIcon(R.mipmap.user).withIdentifier(50).withCheckable(false),
-                SecondaryDrawerItem().withName("Perfil").withTextColor(
+                PrimaryDrawerItem().withName("Perfil").withTextColor(
                     Color.WHITE
                 ).withIconColorRes(R.color.orange).withIcon(R.mipmap.user).withIdentifier(1).withCheckable(
                     false
@@ -81,8 +89,8 @@ class HomeActivity : AppCompatActivity() {
                 drawerItem: IDrawerItem?
             ): Boolean {
                 if (drawerItem != null) {
-                    if (drawerItem.identifier === 1) {
-                        val intent = Intent(this@HomeActivity, PerfilUserActivity::class.java)
+                    if(drawerItem.identifier === 1){
+                        val intent = Intent(applicationContext, PerfilUserActivity::class.java)
                         startActivity(intent)
                     }
                 }
@@ -93,10 +101,10 @@ class HomeActivity : AppCompatActivity() {
 
                                 cons.setTitle("Cerrando Sesión")
                                 cons.setMessage("¿Desea Cerrar Sesión?")
-                                cons.setPositiveButton("SI") { _, _ ->
+                                cons.setNegativeButton("SI") { _, _ ->
                                     closeSession()
                                 }
-                                cons.setNegativeButton("NO"){_, _ ->
+                                cons.setPositiveButton("NO"){_, _ ->
 
                                 }
                                 val dialog: AlertDialog = cons.create()
@@ -108,6 +116,9 @@ class HomeActivity : AppCompatActivity() {
             }
         }
 
+        btnCrear.setOnClickListener{
+
+        }
 
         btnConsultar?.setOnClickListener {
             val intent = Intent(applicationContext, ReportListActivity::class.java)

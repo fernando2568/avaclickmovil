@@ -59,6 +59,16 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.HomeActivity" />
 
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="com.avaclick.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/fileprovider" />
+        </provider>
+
         <activity
             android:name=".activities.PerfilUserActivity"
             android:label="@string/app_name"

@@ -126,5 +126,79 @@
         android:layout_marginRight="10dp"
         android:hint="@string/proceso_label_colonia"
         />
+    <EditText
+        android:id="@+id/inputCalle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginRight="10dp"
+        android:hint="@string/proceso_label_calle"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/inputNumExt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="left"
+            android:hint="@string/proceso_label_numero_ext" />
+
+        <EditText
+            android:id="@+id/inputNumInt"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:gravity="left"
+            android:hint="@string/proceso_label_numero_int" />
+    </LinearLayout>
+   <LinearLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <EditText
+           android:id="@+id/inputLote"
+           android:layout_width="0dp"
+           android:layout_weight="1"
+           android:layout_height="wrap_content"
+           android:gravity="left"
+           android:layout_marginStart="10dp"
+           android:layout_marginLeft="10dp"
+           android:layout_marginTop="5dp"
+           android:layout_marginEnd="10dp"
+           android:layout_marginRight="10dp"
+           android:hint="@string/proceso_label_lote"
+           />
+       <EditText
+           android:id="@+id/inputManzana"
+           android:layout_width="0dp"
+           android:layout_weight="1"
+           android:layout_height="wrap_content"
+           android:gravity="left"
+           android:layout_marginStart="10dp"
+           android:layout_marginLeft="10dp"
+           android:layout_marginTop="5dp"
+           android:layout_marginEnd="10dp"
+           android:layout_marginRight="10dp"
+           android:hint="@string/proceso_label_manzana"
+           />
+   </LinearLayout>
 
 </LinearLayout>

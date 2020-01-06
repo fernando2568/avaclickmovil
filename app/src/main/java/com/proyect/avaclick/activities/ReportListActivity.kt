@@ -49,7 +49,7 @@ class ReportListActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<ListReportResponse>, response: Response<ListReportResponse>) =
                     if(response.body()?.success?.equals(true) ?: (true === null)){
                         //Carga de datos
-                        response.body()?.listado?.forEach(){
+                        response.body()?.listado?.forEach {
                             val report = Reporte(
                                 IdAlmacen = it.IdAlmacen,
                                 Domicilio = it.Domicilio,

@@ -62,4 +62,30 @@
         <item name="android:windowLightStatusBar" tools:targetApi="m">false</item>
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
+    <style name="GridRadioButton">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">4dp</item>
+        <!--<item name="android:background">@drawable/button_option_background_selector</item>-->
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">10dp</item>
+        <!--<item name="android:textColor">@drawable/text_button_option_color_selector</item>-->
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/radio_button</item>
+    </style>
+    <style name="RadioButtonChar">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">10dp</item>
+        <!--<item name="android:background">@drawable/button_option_background_selector</item>-->
+        <item name="android:drawablePadding">1dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:padding">1dp</item>
+        <!--<item name="android:textColor">@drawable/text_button_option_color_selector</item>-->
+        <item name="android:textSize">14sp</item>
+        <item name="android:background">@drawable/radio_button</item>
+    </style>
 </resources>

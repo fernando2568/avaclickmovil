@@ -19,6 +19,7 @@ import com.mikepenz.materialdrawer.model.SecondaryDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IProfile
 import com.proyect.avaclick.R
+import com.proyect.avaclick.activities.fragments.MapsActivity
 import com.proyect.avaclick.storage.SharedPrefManager
 import kotlinx.android.synthetic.main.activity_home.*
 
@@ -117,7 +118,8 @@ class HomeActivity : AppCompatActivity() {
         }
 
         btnCrear.setOnClickListener{
-
+            val intent = Intent(applicationContext, MapsActivity::class.java)
+            startActivity(intent)
         }
 
         btnConsultar?.setOnClickListener {

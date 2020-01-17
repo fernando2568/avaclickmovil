@@ -6,7 +6,16 @@ apply plugin: 'kotlin-android-extensions'
 
 apply plugin: 'androidx.navigation.safeargs'
 
+
 android {
+    signingConfigs {
+        avaclick {
+            storeFile file('C:\\Desarrollo\\AvaclickProyect\\demo.jks')
+            storePassword '12345678'
+            keyAlias = 'key0'
+            keyPassword '12345678'
+        }
+    }
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
@@ -32,10 +41,15 @@ android {
     }
 }
 
+repositories {
+    google()
+    maven { url 'https://jitpack.io' }
+}
 
 dependencies {
 
-    compile('com.mikepenz:materialdrawer:3.0.9@aar') {
+
+    implementation('com.mikepenz:materialdrawer:3.0.9@aar') {
         transitive = true
     }
 
@@ -48,22 +62,31 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-extensions:2.1.0'
     implementation 'androidx.navigation:navigation-fragment-ktx:2.1.0'
     implementation 'androidx.navigation:navigation-ui-ktx:2.1.0'
-    testImplementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.13'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.cardview:cardview:1.0.0'
     implementation 'com.google.android.material:material:1.0.0'
-    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
-    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.1'
     implementation 'android.arch.persistence.room:runtime:1.1.1'
     implementation 'com.github.barteksc:android-pdf-viewer:2.7.0'
 
-    implementation 'com.google.android.gms:play-services-maps:17.0.0'
-
-    implementation 'com.google.android.gms:play-services-places:17.0.0'
-    compile 'com.google.android.gms:play-services-location:17.0.0'
-
     annotationProcessor 'android.arch.persistence.room:compiler:1.1.1'
+
+
+
+    implementation 'com.karumi:dexter:5.0.0'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.github.mancj:MaterialSearchBar:0.8.2'
+    implementation 'com.google.android.libraries.places:places:1.1.0'
+    implementation 'com.skyfishjy.ripplebackground:library:1.0.1'
+
+    implementation 'com.tbuonomo.andrui:viewpagerdotsindicator:2.0.3'
+    implementation 'com.romandanylyk:pageindicatorview:1.0.2@aar'
+    implementation 'com.makeramen:roundedimageview:2.3.0'
+    implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.github.iammert:ReadableBottomBar:0.2'
 
 }

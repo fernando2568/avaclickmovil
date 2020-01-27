@@ -172,5 +172,7 @@
     <string name="tel_casa">Teléfono Casa</string>
     <string name="tel_oficina">Teléfono Oficina</string>
     <string name="ap_materno">Ap. Materno</string>
+    <string name="google_maps_api">AIzaSyAVCjV6J06cPqZeCHX5vNNFNX8bPljAY3k</string>
+
 
 </resources>

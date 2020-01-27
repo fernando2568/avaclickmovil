@@ -15,7 +15,7 @@ import kotlinx.android.synthetic.main.activity_process.*
 class ProcessActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.fragment_tipo)
+        setContentView(R.layout.activity_maps)
 
     }
 

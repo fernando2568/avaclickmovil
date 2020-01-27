@@ -1,8 +1,11 @@
 package com.proyect.avaclick.activities
 
 import android.Manifest
+import android.app.DownloadManager
+import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -21,13 +24,16 @@ import kotlinx.android.synthetic.main.activity_report_list.*
 import java.io.File
 import android.os.Environment
 import androidx.core.app.ActivityCompat
+import com.proyect.avaclick.util.CustomProgressBar
 
 class ReportListActivity : AppCompatActivity() {
     val context = this
     var currentPage = 0
     var MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE: Int = 0
+    val progressBar = CustomProgressBar()
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        progressBar.show(context, "Cargando reportes...")
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_report_list)
         //
@@ -49,19 +55,6 @@ class ReportListActivity : AppCompatActivity() {
                 override fun onResponse(call: Call<ListReportResponse>, response: Response<ListReportResponse>) =
                     if(response.body()?.success?.equals(true) ?: (true === null)){
                         //Carga de datos
-                        response.body()?.listado?.forEach {
-                            val report = Reporte(
-                                IdAlmacen = it.IdAlmacen,
-                                Domicilio = it.Domicilio,
-                                Fecha = it.Fecha,
-                                Folio =  it.Folio,
-                                ValorInvestigado = it.ValorInvestigado,
-                                ValorAObtener = it.ValorAObtener,
-                                UrlPdf = it.UrlPdf
-                            )
-                            reports.add(report)
-                        }
-
                         if (ContextCompat.checkSelfPermission(context, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                             if (ActivityCompat.shouldShowRequestPermissionRationale(context, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
                                 val builder = AlertDialog.Builder(this@ReportListActivity)
@@ -77,12 +70,42 @@ class ReportListActivity : AppCompatActivity() {
                             } else {
                                 ActivityCompat.requestPermissions(context, arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE)
                             }
-                        } else {
+                        }else{
                             val folder_main = "Reportes"
 
                             val folder = File(Environment.getExternalStorageDirectory(), folder_main)
                             if(!folder.exists()){
                                 folder.mkdirs()
+                            }
+
+                            response.body()?.listado?.forEach {
+                                val report = Reporte(
+                                    IdAlmacen = it.IdAlmacen,
+                                    Domicilio = it.Domicilio,
+                                    Fecha = it.Fecha,
+                                    Folio =  it.Folio,
+                                    ValorInvestigado = it.ValorInvestigado,
+                                    ValorAObtener = it.ValorAObtener,
+                                    UrlPdf = it.UrlPdf
+                                )
+                                reports.add(report)
+
+                                val downloadmanager: DownloadManager = context.getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
+                                val uri: Uri = Uri.parse(RetrofitClient.BASE_URL_DOWNLOAD + report.UrlPdf)
+                                val file = File(Environment.getExternalStorageDirectory(), "/Reportes/" + report.Folio + ".pdf")
+
+                                if(!file.exists()){
+                                    val request: DownloadManager.Request = DownloadManager.Request(uri)
+                                    request.setAllowedNetworkTypes(DownloadManager.Request.NETWORK_WIFI or DownloadManager.Request.NETWORK_MOBILE)
+                                    request.setAllowedOverRoaming(false).setTitle("Descarga")
+                                    request.setDescription("Descarga de reporte en PDF.")
+                                    request.setDestinationInExternalPublicDir("/Reportes", report.Folio + ".pdf")
+                                    downloadmanager.enqueue(request)
+                                }
+
+                                if(file.length() <= 21510){
+                                    file.delete()
+                                }
                             }
 
                             var reportPagination = ReportPagination(reports.size,10, reports.size % 10, reports.size/10, reports)
@@ -95,19 +118,22 @@ class ReportListActivity : AppCompatActivity() {
 
                             siguiente.setOnClickListener {
                                 currentPage = currentPage?.plus(1)
-                                val adapter = ReportAdapter(context, reportPagination.generatePage(currentPage))
-                                listReportes.adapter = adapter
+                                val adapterS = ReportAdapter(context, reportPagination.generatePage(currentPage))
+                                listReportes.adapter = adapterS
                                 toggleButtons(currentPage, totalPages)
                             }
 
                             previo.setOnClickListener {
                                 currentPage = currentPage?.dec()
-                                val adapter = ReportAdapter(context, reportPagination.generatePage(currentPage))
-                                listReportes.adapter = adapter
+                                val adapterP = ReportAdapter(context, reportPagination.generatePage(currentPage))
+                                listReportes.adapter = adapterP
                                 toggleButtons(currentPage, totalPages)
                             }
+
+                            progressBar.dialog.dismiss()
                         }
                     }else{
+                        progressBar.dialog.dismiss()
                         val builder = AlertDialog.Builder(this@ReportListActivity)
                         builder.setTitle("Error!!")
                         builder.setMessage(response.body()?.success.toString())

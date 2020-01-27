@@ -9,7 +9,7 @@
         android:id="@+id/reporte_folio"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:textColor="@color/white"/>
 
     <RelativeLayout
@@ -18,28 +18,33 @@
 
         <TextView
             android:id="@+id/reporte_domicilio"
-            android:layout_width="match_parent"
+            android:layout_width="300dp"
             android:layout_height="35dp"
+            android:maxWidth="340dp"
             android:layout_marginBottom="10dp"
             android:textColor="@color/white"
-            android:textSize="20sp" />
+            android:textSize="18sp"
+            android:autoSizeTextType="uniform"
+            android:autoSizeMinTextSize="14sp"
+            android:autoSizeMaxTextSize="18sp"
+            android:autoSizeStepGranularity="2sp"/>
 
         <ImageView
             android:id="@+id/share_report"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignRight="@+id/reporte_domicilio"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="45dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:contentDescription="@string/shareDescription"
+            android:layout_alignEnd="@+id/reporte_domicilio"
+            android:layout_marginEnd="-36dp"
             android:src="@drawable/share" />
 
         <ImageView
             android:id="@+id/show_pdf"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignRight="@+id/reporte_domicilio"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="5dp"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:contentDescription="@string/viewDescription"
+            android:layout_alignEnd="@+id/reporte_domicilio"
+            android:layout_marginEnd="-67dp"
             android:src="@drawable/pdf" />
 
     </RelativeLayout>
@@ -47,6 +52,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/white"/>
+        android:background="@color/white" />
 
 </LinearLayout>

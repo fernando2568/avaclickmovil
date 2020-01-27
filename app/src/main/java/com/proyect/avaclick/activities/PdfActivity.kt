@@ -3,11 +3,12 @@ package com.proyect.avaclick.activities
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
-import com.github.barteksc.pdfviewer.PDFView
+import com.joanzapata.pdfview.PDFView
 import com.proyect.avaclick.R
 import java.io.File
 
 class PdfActivity : AppCompatActivity() {
+    val context = this
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

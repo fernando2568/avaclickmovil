@@ -10,19 +10,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_margin="15dp"
         android:layout_weight="0.17"
         android:background="@color/fond"
         android:orientation="vertical">
 
-        <com.github.barteksc.pdfviewer.PDFView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+        <com.joanzapata.pdfview.PDFView
             android:id="@+id/pdf"
-            android:layout_centerInParent="true">
-
-        </com.github.barteksc.pdfviewer.PDFView>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
 
     </LinearLayout>
 

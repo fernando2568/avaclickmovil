@@ -3,40 +3,40 @@ package com.proyect.avaclick.models
 import com.proyect.avaclick.entity.orm.IColumn
 import com.proyect.avaclick.entity.orm.IEntity
 
-@IEntity(table = "Persona", primaryKey = ["ID"])
+@IEntity(table = "Persona", primaryKey = ["IdPersona"])
 //Para crear la tabla en la base de datos
-data class Persona(   @IColumn(name = "IsAdministrator", dataType = "text")
+data class Persona(   @IColumn(name = "IdPersona", dataType = "text")
                       val IdPersona: Int = 0,
 
-                      @IColumn(name = "IsAdministrator", dataType = "text")
+                      @IColumn(name = "Codigo", dataType = "text")
                       val Codigo: String = "",
 
-                      @IColumn(name = "IsAdministrator", dataType = "text")
+                      @IColumn(name = "Nombre", dataType = "text")
                       val Nombre: String = "",
 
-                      @IColumn(name = "IsAdministrator", dataType = "text")
+                      @IColumn(name = "ApellidoPat", dataType = "text")
                       val ApellidoPat: String = "",
 
-                      @IColumn(name = "IsAdministrator", dataType = "text")
+                      @IColumn(name = "ApellidoMat", dataType = "text")
                       val ApellidoMat: String = "",
 
-                      @IColumn(name = "IsAdministrator", dataType = "text")
+                      @IColumn(name = "Correo", dataType = "text")
                       val Correo: String = "",
 
-                      @IColumn(name = "IsAdministrator", dataType = "text")
+                      @IColumn(name = "TelCasa", dataType = "text")
                       val TelCasa: String = "",
 
-                      @IColumn(name = "IsAdministrator", dataType = "text")
+                      @IColumn(name = "TelOficina", dataType = "text")
                       val TelOficina: String = "",
 
-                      @IColumn(name = "IsAdministrator", dataType = "text")
+                      @IColumn(name = "Celular", dataType = "text")
                       val Celular: String = "",
 
-                      @IColumn(name = "IsAdministrator", dataType = "text")
+                      @IColumn(name = "Activo", dataType = "text")
                       val Activo: Boolean = false,
 
-                      @IColumn(name = "IsAdministrator", dataType = "text")
+                      @IColumn(name = "IdSucursal", dataType = "text")
                       val IdSucursal: Int = 0,
 
-                      @IColumn(name = "IsAdministrator", dataType = "text")
+                      @IColumn(name = "IdEmpresa", dataType = "text")
                       val IdEmpresa: Int = 0)

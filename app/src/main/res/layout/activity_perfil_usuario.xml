@@ -1,40 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#EEEEEE"
+    android:fillViewport="true"
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize" />
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="?attr/colorPrimary"
+        android:gravity="center"
+        android:minHeight="?attr/actionBarSize">
 
-    <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/back_btn"
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_marginBottom="4dp"
+                android:contentDescription="@string/toolbarB"
+                android:src="@drawable/arrowleft_white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/toolbar_back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:text="@string/toolbarB"
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:clickable="true"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/back_btn"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="112dp"
+                android:gravity="center"
+                android:text="@string/toolbarP"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/toolbar_back"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false">
 
-        <ScrollView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:fillViewport="true"
-            tools:ignore="Suspicious0dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginRight="10dp"
-                    android:layout_weight="1"
-                    android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:isScrollContainer="?android:attr/windowFullscreen"
+            android:orientation="vertical"
+            android:weightSum="1">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -43,19 +83,20 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="5dp"
-                        android:text="@string/nombre"
+                        android:text="@string/nombreR"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     <EditText
                         android:id="@+id/txtNombre"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="5dp"
-                        android:background="@drawable/edit_text_green"
                         android:inputType="text"
-                        android:autofillHints="" tools:targetApi="o"/>
+                        android:background="@drawable/box_toolbar"
+                        android:autofillHints="" tools:targetApi="o"
+                        android:labelFor="@+id/txtNombre"/>
 
                     <TextView
                         android:layout_width="match_parent"
@@ -64,141 +105,162 @@
                         android:layout_marginTop="5dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="5dp"
-                        android:text="@string/ap_patern"
+                        android:text="@string/apellidosR"
                         android:textAppearance="?android:attr/textAppearanceMedium" />
 
                     <EditText
-                        android:id="@+id/txtApPaterno"
+                        android:id="@+id/txtApellidos"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginBottom="5dp"
-                        android:background="@drawable/edit_text_green"
+                        android:background="@drawable/box_toolbar"
                         android:inputType="text"
+                        android:labelFor="@+id/txtApellidos"
                         android:autofillHints="" tools:targetApi="o"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/ap_materno"
+                        android:text="@string/officePhoneR"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp" />
 
                     <EditText
-                        android:id="@+id/txtApMaterno"
+                        android:id="@+id/txtTelOficina"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginBottom="5dp"
-                        android:background="@drawable/edit_text_green"
-                        android:inputType="text"
-                        android:autofillHints="" tools:targetApi="o"/>
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/tel_oficina"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginBottom="5dp" />
-
-                    <EditText
-                        android:id="@+id/txtToficina"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:layout_marginBottom="5dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/edit_text_green"
+                        android:background="@drawable/box_toolbar"
                         android:inputType="phone"
+                        android:labelFor="@+id/txtTelOficina"
                         android:autofillHints="" />
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/tel_casa"
+                        android:text="@string/phoneR"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp" />
 
                     <EditText
-                        android:id="@+id/txtTcasa"
+                        android:id="@+id/txtTelcasa"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:layout_marginBottom="5dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/edit_text_green"
+                        android:background="@drawable/box_toolbar"
                         android:inputType="phone"
+                        android:labelFor="@+id/txtTelcasa"
                         android:autofillHints="" tools:targetApi="o"/>
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceMedium"
-                        android:text="@string/celular"
+                        android:text="@string/mobileR"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
                         android:layout_marginTop="5dp"
                         android:layout_marginBottom="5dp" />
 
                     <EditText
-                        android:id="@+id/txtTcel"
+                        android:id="@+id/txtTelCel"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="45dp"
                         android:layout_marginBottom="5dp"
                         android:layout_marginLeft="10dp"
                         android:layout_marginRight="10dp"
-                        android:background="@drawable/edit_text_green"
+                        android:background="@drawable/box_toolbar"
                         android:inputType="phone"
+                        android:labelFor="@+id/txtTelCel"
                         android:autofillHints="" tools:targetApi="o"/>
 
                     <TextView
-                        android:id="@+id/lblError"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textAppearance="?android:attr/textAppearanceSmall"
-                        android:textColor="#D70000"
-                        android:gravity="center"
-                        android:visibility="gone"
-                        android:padding="5dp" />
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/passwordR"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp" />
 
-                </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
-            </LinearLayout>
+                        <EditText
+                            android:id="@+id/txtPassword"
+                            android:layout_width="match_parent"
+                            android:layout_height="45dp"
+                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@drawable/box_toolbar"
+                            android:inputType="textPassword"
+                            android:labelFor="@+id/txtPassword"
+                            android:autofillHints="" tools:targetApi="o"/>
 
-        </ScrollView>
+                        <ImageView
+                            android:id="@+id/show_pass_btn"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:layout_alignEnd="@+id/txtPassword"
+                            android:layout_centerVertical="true"
+                            android:layout_marginEnd="10dp"
+                            android:contentDescription="@string/viewPassword"
+                            android:src="@drawable/eye" />
 
-    </LinearLayout>
+                    </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#FF9634"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:orientation="vertical">
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceMedium"
+                        android:text="@string/passwordCR"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp" />
 
-        <TextView
-            android:id="@+id/lblCreate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal|bottom"
-            android:paddingBottom="5dp"
-            android:paddingTop="5dp"
-            android:text="Guardar"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="#FFFFFF" />
-    </LinearLayout>
+                    <EditText
+                        android:id="@+id/txtPasswordRep"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginBottom="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/box_toolbar"
+                        android:inputType="textPassword"
+                        android:labelFor="@+id/txtPasswordRep"
+                        android:autofillHints="" tools:targetApi="o"/>
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+                    <Button
+                        android:id="@+id/buttonEditar"
+                        android:layout_width="400dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginStart="5dp"
+                        android:backgroundTint="@color/grey_600"
+                        android:enabled="true"
+                        android:foregroundTint="@android:color/darker_gray"
+                        android:text="@string/buttonP"
+                        android:textColor="#ffff"
+                        android:padding="5dp"/>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

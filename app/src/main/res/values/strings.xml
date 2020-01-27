@@ -90,14 +90,27 @@
     <string name="correo_ejemplo">correo@ejemplo.com</string>
     <string name="recuperar_cuenta">Ingresa tu email, te enviaremos un enlace para recuperar tu cuenta.</string>
     <string name="toolbarT">Registro</string>
+    <string name="toolbarP">Perfil</string>
     <string name="toolbarTR">Reportes</string>
     <string name="toolbarB">Atrás</string>
+    <string name="toolbarTitle">Mis reportes</string>
+    <string name="buttonPrev">Previo</string>
+    <string name="buttonNext">Siguiente</string>
+    <string name="shareDescription">Compartir reporte</string>
+    <string name="viewDescription">Ver reporte</string>
+    <string name="viewPassword">Ver password</string>
+    <string name="emailR">Correo:</string>
+    <string name="phoneR">Telefono:</string>
+    <string name="mobileR">Celular:</string>
+    <string name="officePhoneR">Tel. Oficina:</string>
     <string name="nombreR">Nombre:</string>
     <string name="apellidosR">Apellidos:</string>
     <string name="passwordR">Password:</string>
     <string name="passwordCR">Confirmar password:</string>
     <string name="new_report">Un nuevo reporte</string>
     <string name="reports_storage">Tus reportes almacenados</string>
+    <string name="buttonR">Crear</string>
+    <string name="buttonP">Guardar</string>
 
     <string name="proceso_label_direccion">Buscar dirección: </string>
     <string name="proceso_label_estado">Estado: </string>
